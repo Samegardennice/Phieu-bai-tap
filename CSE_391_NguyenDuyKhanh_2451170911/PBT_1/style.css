@@ -1,0 +1,21 @@
+p#paragraph {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #927c7c;
+}
+img#profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+table#skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
