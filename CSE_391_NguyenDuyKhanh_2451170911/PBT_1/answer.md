@@ -176,3 +176,26 @@ Lỗi 8: Dòng 162 - Thiếu đóng thẻ - thêm đóng thẻ </p>
 Lỗi 9: Dòng 165 - Thiếu đóng thẻ - thêm đóng thẻ </html>
 lỗi 10: Dòng 145-148 - Sai semantic về loại thẻ cần dùng - <tr> phải đổi thành <thead> và <td> phải đổi thành <th>
 
+
+
+
+Bài B4  — Phân tích trang web thật
+1.
+- Em đã chọn trang web shopee.vn và nhận thấy họ có dùng các thẻ semantic sau:
++) Thẻ <header> ở đầu body chứa toàn bộ logo,phần layout màu cam trên cùng, và thậm chí là trong <header> còn chứa cả thanh tìm kiếm sản phẩm của trang web nữa
+======> Bai 4_TimHieuElement_03.png
+
++) Thẻ <nav> đặt bên trong <header> và được viết ngay bên dưới header có chứa các đường link dẫn đến các danh mục khác của shopee như trang "kênh người bán" hay "trở thành người bán hàng" và sẽ điều hướng tới các trang khác ngoài shopee.vn
+======> Bai 4_TimHieuElement_02.png
+
++) Thẻ <section> viết ngay bên dưới phần header được bao trong 1 thẻ <div> có vẻ như nó là một phần gì đó giúp chia bố cục chi tiết hơn cho thẻ <div> và còn liên quan tới hình ảnh vì em thấy có các dòng như placeholdimage hay img,icon,background trong đó
+======> Bai 4_TimHieuElement_01.png
+
+- Còn về những thẻ mà họ dùng không đúng semantic, em chỉ nhận ra một thẻ đó là họ không dùng thẻ <main> bên dưới thẻ <body> thay vào đó họ dùng cấu trúc các <div> và <section> rất lạ
+
+2. Trên trang shopee.vn người ta còn không dùng cả table, có thể với các web lớn table có vẻ lỗi thời và không hợp lí nữa vì tìm trong element không thấy có <table>
+
+3.
+Vì trong form không hề có action="_" hay method=" _ " nên action có thể gửi đến url hiện tại, còn method thì trình duyệt sẽ coi mặc định là Get
+Còn trong code em thấy có mỗi <input __________ value=""> mà không có định dạng cụ thể nên trình duyệt sẽ mặc định coi đó là text
+======> Bai 4_TimHieuElement_04.png
