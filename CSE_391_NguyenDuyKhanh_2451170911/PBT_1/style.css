@@ -19,3 +19,8 @@ th, td {
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
+
+h1#title-page {
+    color: #94cfed;
+    text-align: center;
+}
