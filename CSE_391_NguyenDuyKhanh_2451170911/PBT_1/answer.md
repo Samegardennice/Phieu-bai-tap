@@ -108,4 +108,71 @@ Trả lời:
 ====> Tài liệu tham khảo: 
 +) 05_tables_hyperlinks.md ("Bảng Giá Sản Phẩm Đầu Tiên" — Minh làm trang e-commerce")
 +) 05_tables_hyperlinks.md (📊 Table — Bảng dữ liệu)
----
+
+
+
+
+
+Bài B3 — Debug HTML
+- Code gốc của đề bài:
+<!DOCTYPE>  // Sai phải DOCTYPE HTML 
+<html>
+<head>
+    <title>Trang web
+    <meta charset="utf8">      // Thiếu </title>
+</head>
+<body>
+    <h1>Welcome to ShopTLU<h1> // Sai phải </h1>
+    
+    <header>
+        <nav>
+            <a href="home">Trang chủ<a>  // sai phải </a>
+            <a href="products">Sản phẩm</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h3>Sản phẩm hot</h3>
+            <img src=iphone.jpg> // Sai thiếu ""
+            <p>iPhone 16 Pro</p>
+            <p>Giá: <b>25.990.000đ</p></b>   // Sai tự nhiên lòi ra </b>
+        </section>
+        
+        <section>
+            <h3>Thông tin</h3>
+            <table>
+                <tr> // Sai semantic 
+                    <td>Tên</td>    
+                    <td>Giá</td>
+                </tr>
+                <tr>
+                    <td>iPhone</td>
+                    <td>25tr</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    
+    <main>                         // Sai thừa 1 main nên dùng aside
+        <p>Sidebar content</p>
+    </main>
+    
+    <footer>
+        <p>Copyright 2026     // Sai thiếu </p>
+    </footer>
+</body>
+  // Sai thiếu </html>
+*Số dòng em sẽ đánh số theo như trong file answer.md này luôn
+- Các lỗi sai bao gồm:
+Lỗi 1: Dòng 118 - Sai khuôn mẫu html - <!DOCTYPE> phải sửa thành <!DOCTYPE html>
+Lỗi 2: Dòng 121 - Thiếu đóng thẻ - Viết thêm thẻ đóng </title>
+Lỗi 3: Dòng 125 - Đóng thẻ sai - sửa <h1> thành </h1>
+Lỗi 4: Dòng 129 - Đóng thẻ sai - sửa <a> thành </a>
+Lỗi 5: Dòng 137 - Sai syntax sau src - Sau src= phải có dấu "" thành "iphone.jpg" 
+Lỗi 6: Dòng 139 - Viết sai thứ tự khi đóng thẻ - <p>Giá: <b>25.990.000đ</p></b> phải cho </b> vào trong thành <p>Giá: <b>25.990.000đ</b></p>
+Lỗi 7: Dòng 157-159 - Sai semantic,một body chỉ cần 1 main chứ không cần nhiều main - Thay vì dùng main thì sẽ dùng thẻ aside cho các thành phần không phải thành phần chính
+Lỗi 8: Dòng 162 - Thiếu đóng thẻ - thêm đóng thẻ </p>
+Lỗi 9: Dòng 165 - Thiếu đóng thẻ - thêm đóng thẻ </html>
+lỗi 10: Dòng 145-148 - Sai semantic về loại thẻ cần dùng - <tr> phải đổi thành <thead> và <td> phải đổi thành <th>
+
