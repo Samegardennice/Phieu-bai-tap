@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee bán hàng</title>
+</head>
+<body>
+    <header>
+        <h1>Shop thiết bị di động Điện máy xanh lá cây</h1>
+        <nav aria-label="Breadcumb">     <!-- Vì đây là thanh điều hướng-->
+            <ol>                                      <!-- Vì breadcumb có thứ tự     -->
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li><a href="#">Bàn phím cơ</a></li> 
+            </ol>
+        </nav>
+        <nav aria-label="Main-navigation">
+            <ul> <!-- dùng ul vì đây là thanh điều hướng chính giữa các phân vùng trong trang này nên không cần thứ tự vì nó chỉ hoạt động trong trang này-->
+                <li><a href="#Images">Ảnh sản phẩm</a></li>
+                <li><a href="#Info">Thông tin sản phẩm</a></li>
+                <li><a href="#Reviews">Đánh giá sản phẩm</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+    <hr>
+    <main>
+        <section id="Images">  <!-- Section vì đây là 1 phần nội dung của trang web, cần phải chia ra các phần nội dung khác nhau -->
+            <h2>Ảnh sản phẩm</h2>
+        <figure> <!-- Figure vì đây là 1 hình ảnh kèm theo chú thích -->
+            <img src="https://placehold.co/250x250" alt="Màu xanh" width="250">
+            <figcaption>iPhone 16 xanh  lam</figcaption>
+        </figure>
+        <figure>
+        <img src="https://placehold.co/250x250" alt="Xanh lam" width="250">
+        <figcaption>iPhone 16 cam</figcaption>
+        </figure>
+        <figure>
+            <img src="https://placehold.co/250x250" alt="Xanh glacial" width="250">
+            <figcaption>iPhone 16 trắng</figcaption>
+        </figure>
+        <figure>
+            <img src="https://placehold.co/250x250" alt="Đen gradient" width="250">
+            <figcaption>iPhone 16 titan</figcaption>
+        </figure>
+        <figure>
+            <img src="https://placehold.co/250x250" alt="Xanh cloud" width="250">
+            <figcaption>iPhone 16 trắng pearl</figcaption>
+        </figure>
+        </section>
+
+        <section id="Info">
+            <h2>Thông tin sản phẩm</h2>
+            <p><strong>Tên sản phẩm </strong>: iPhone 16</p>
+            <p><strong>Giá </strong>: 29.990.000 VND</p>
+            <p><strong>Đánh giá</strong>: ⭐⭐⭐⭐⭐</p>
+            <p><strong>Mô tả </strong>: iPhone 16 là một chiếc điện thoại thông minh mới nhất của Apple, với thiết kế hiện đại và nhiều tính năng nổi bật.</p>
+            <h3>Thông số kỹ thuật</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>
+                            <p>RAM</p>
+                        </td>
+                        <td>
+                            <P>8 GB</P>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Bộ vi xử lý</p>
+                        </td>
+                        <td>
+                            <p>A17 Pro</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Độ phân giải màn hình</p>
+                        </td>
+                        <td>
+                            <p>2532 x 1170 pixels</p>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+        <section id="Reviews">
+            <h2>Đánh giá sản phẩm</h2>
+            <article> <!-- Article vì đây là 1 comment độc lập riêng biệt về đánh giá sản phẩm -->
+                <p><strong>Anh A <span>⭐⭐⭐⭐⭐</span></strong></p>
+                <p>iPhone 16 là một chiếc điện thoại tuyệt vời với hiệu năng mạnh mẽ và thiết kế đẹp mắt. Tôi rất hài lòng với sản phẩm này.</p>
+            </article>
+            <article>
+                <p><strong>Chị B <span>⭐⭐⭐⭐</span></strong></p>
+                <p>iPhone 16 có thiết kế rất đẹp và hiệu năng ổn định. Tuy nhiên, giá thành hơi cao so với các sản phẩm cùng phân khúc.</p>
+            </article>
+        </section>
+        <aside> <!-- Aside vì đây là phần nội dung phụ, không liên quan trực tiếp đến nội dung chính của trang web nhưng vẫn cung cấp thông tin hữu ích cho người dùng -->
+            <h2>Sản phẩm tương tự</h2>
+            <p><strong>iPhone 15 <span><a href="#">Mua ngay</a></span></strong></p>
+            <p><strong>iPhone 14 <span><a href="#">Mua ngay</a></span></strong></p>
+        </aside>
+    </main>
+    <hr>
+    <footer>
+        Shop thiết bị di động Điện máy xanh lá cây - &copy; 2026. All rights reserved.
+    </footer>
+</body>
+</html>
