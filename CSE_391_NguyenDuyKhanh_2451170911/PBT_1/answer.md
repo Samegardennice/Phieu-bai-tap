@@ -220,7 +220,28 @@ Câu A1  — Input Types
 9.type="file" -> Nút upload file, có thể dùng accept để giới hạn loại file mà ng dùng có thể upload -> Dùng để upload,tải file lên trang web
 10.type="search" -> Ô tìm kiếm cho nhập text, cũng không khác gì text,một số trình duyệt có thể hỗ trợ nút x xóa nhanh -> Dùng làm thanh tìm kiếm video,tìm kiếm nhạc,....
 
+Câu A2  — Validation Attributes
 
+<!-- Trường hợp 1 -->
+<input type="text" required value="">   <!-- User để trống -->
+
+<!-- Trường hợp 2 -->
+<input type="email" value="abc">        <!-- User gõ "abc" -->
+
+<!-- Trường hợp 3 -->
+<input type="number" min="1" max="10" value="15"> <!-- User gõ 15 -->
+
+<!-- Trường hợp 4 -->
+<input type="text" pattern="[0-9]{10}" value="abc123"> <!-- User gõ "abc123" -->
+
+<!-- Trường hợp 5 -->
+<input type="password" minlength="8" value="123">  <!-- User gõ "123" -->
+
+- Trong trường hợp 1 khi bấm submit trình duyệt sẽ đòi ng dùng phải nhập vào textbox vì có thuộc tính required
+- Trong trường hợp 2 khi bấm submit, trình duyệt sẽ báo ghi sai định dạng và yêu cầu ng dùng nhập cho đúng vì type ở đây là email, nó sẽ yêu cầu nhập cả @ và định dạng theo kiểu email, nên chỉ nhập abc thôi là k đc 
+- Trong trường hợp 3 nếu bấm submit có thể browser sẽ báo sai vì max ở đây set là 10 trong khi ng dùng lại nhập 15 là vượt quá giới hạn
+- Trong trường hợp 4 sẽ bị browser báo nhập sai vì pattern quy định định dạng là chỉ cho nhập số 0-9
+- Trong trường hợp 5 sẽ bị browser báo nhập chưa đúng vì độ dài tối thiểu minlength được set là 8 trong khi người dùng chỉ nhập có 3 kí tự 
 
 
 
