@@ -1,3 +1,7 @@
+PBT_1
+
+
+
 **Câu A1 — HTTP & Browser
 Trả lời:
 
@@ -175,7 +179,7 @@ Lỗi 7: Dòng 157-159 - Sai semantic,một body chỉ cần 1 main chứ không
 Lỗi 8: Dòng 162 - Thiếu đóng thẻ - thêm đóng thẻ </p>
 Lỗi 9: Dòng 165 - Thiếu đóng thẻ - thêm đóng thẻ </html>
 lỗi 10: Dòng 145-148 - Sai semantic về loại thẻ cần dùng - <tr> phải đổi thành <thead> và <td> phải đổi thành <th>
-
+Lỗi 11: - Sai đường dẫn tương đối thay vì sử dụng anchor link - thêm dấu #   
 
 
 
@@ -199,3 +203,25 @@ Bài B4  — Phân tích trang web thật
 Vì trong form không hề có action="_" hay method=" _ " nên action có thể gửi đến url hiện tại, còn method thì trình duyệt sẽ coi mặc định là Get
 Còn trong code em thấy có mỗi <input __________ value=""> mà không có định dạng cụ thể nên trình duyệt sẽ mặc định coi đó là text
 ======> Bai 4_TimHieuElement_04.png
+
+
+
+
+PBT_2
+Câu A1  — Input Types
+1. type="email" -> Ô nhập text, tự kiểm tra có @ -> Dùng cho form đăng ký
+2. type="password" -> Ô nhập text nhưng bị ẩn đi thành icon tròn -> Dùng cho form nhập mật khẩu
+3.type="text" -> Ô nhập kí tự không có gì đặc biệt -> Dùng để nhập tên, nhập địa chỉ,...
+4.type"number"-> Ô nhập số, có nút tăng giảm, chỉ cho nhập số, có thể dùng min,max -> Dùng nhập số lượng sản phẩm,số người,..
+5.type="tel" -> Ô nhập số điện thoại,trên mobile sẽ hiện bàn phím số,không có validate sẵn - > Dùng nhập số điện thoại
+6.type="date"-> Hiện bộ khung chọn ngày, cần nhập đúng định dạng ngày -> Dùng để nhập ngày tháng năm sinh
+7.type="radio" -> Nút chọn một trong nhiều lựa chọn,không có validate riêng -> Dùng để chọn giới tính hoặc phương thức như thanh toán,giao hàng,....
+8.type="checkbox" -> Ô tick chọn được cho chọn nhiều hoặc chọn đồng ý,không có validate riêng-> Dùng chọn đồng ý điều khoản hoặc lựa chọn sản phẩm,....
+9.type="file" -> Nút upload file, có thể dùng accept để giới hạn loại file mà ng dùng có thể upload -> Dùng để upload,tải file lên trang web
+10.type="search" -> Ô tìm kiếm cho nhập text, cũng không khác gì text,một số trình duyệt có thể hỗ trợ nút x xóa nhanh -> Dùng làm thanh tìm kiếm video,tìm kiếm nhạc,....
+
+
+
+
+
+
