@@ -41,6 +41,27 @@ Câu A3 - Accessibility
 3. aria-label dùng khi không có text hiển thị ví dụ có 1 button không có nội dung text bên trong thẻ button thì cần có aria-label="đóng/mở/submit,.." vì screen reader cần 1 cái tên.
 Tuy  nhiên không dùng aria-label khi đã có <label> là vì bị trùng thông tin vì vốn dĩ label for="abc" đã có thể cung cấp tên cho screen reader rồi 
 
+
+Câu A4 - Media
+
+1. - Thuộc tính loading="lazy" trên thẻ img là thuộc tính giúp ảnh chỉ được load khi phần view-port tức phần mà màn hình hiển thị tới người dùng lướt tới ảnh đó và nhìn thấy ảnh => Làm vậy giúp trang web cải thiện hiệu suất và load nhanh hơn, tiết kiệm băng thông nếu người dùng không cần thiết thấy hết toàn bộ ảnh có trong trang web
+- Trường hợp không nên dùng là khi ảnh đó là ảnh banner,ảnh đầu trang, hay các ảnh quan trọng buộc phải thấy ngay lập tức khi người dùng truy cập vào trang web
+
+2. - Cung cấp nhiều <source> trong thẻ <video> là vì mỗi trình duyệt có format tải video khác nhau , có nhiều source thì giúp tăng khả năng hiển thị của video trên mỗi trình duyệt 
+- 3 format video phổ biến hiện nay là webm,ogg,mp4
+
+3. - Thuộc tính alt trên thẻ <img> dùng để mô tả cho ảnh giúp tăng khả năng SEO giúp trình duyệt nhận diện ngay ảnh này đang nói về cái gì, đồng thời alt còn giúp cho người dùng biết nội dung ảnh ngay cả khi ảnh bị lỗi không load được
+- alt cho 3 trường hợp trong đề bài:
++) Sản  phẩm iphone 16 hiện đại cho nhu cầu quay phim chất lượng cao
++) Ảnh minh họa cho tác phẩm trang trí
++) Doanh thu quý 1 năm 2026 của công ty 
+
+
+
+
+
+
+
 Câu B1 - Form đăng ký tài khoản
 
 HTML không thể validate confirm password là vì nó chỉ có thể check pattern của ô input chứ không thể kiểm tra được logic như ô input A phải trùng với input B nên không thể check confirm password được 
