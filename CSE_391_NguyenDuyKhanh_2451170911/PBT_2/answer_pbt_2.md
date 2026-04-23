@@ -34,6 +34,13 @@ Câu A2  — Validation Attributes
 - Trong trường hợp 4 sẽ bị browser báo nhập sai vì pattern quy định định dạng là chỉ cho nhập số 0-9
 - Trong trường hợp 5 sẽ bị browser báo nhập chưa đúng vì độ dài tối thiểu minlength được set là 8 trong khi người dùng chỉ nhập có 3 kí tự 
 
+
+Câu A3 - Accessibility
+1.<label for="email"> quan trọng cho người dùng screen reader vì nó giúp screen reader nhận diện và đọc luôn email,edit text thay vì chỉ edit text như k có label for, tức người dùng sẽ biết được mình đang nhập là nhập cái gì
+2. fieldset + legend được sử dụng khi để nhóm các input lại với nhau khi chúng có liên quan với nhau. Ví dụ như 1 biểu mẫu nhập thông tin cá nhân sẽ được bọc trong 1 field set trong đó có nhiều mục input nhập thông tin và legend sẽ đóng vai trò như tên của biểu mẫu đó là "thông tin cá nhân"
+3. aria-label dùng khi không có text hiển thị ví dụ có 1 button không có nội dung text bên trong thẻ button thì cần có aria-label="đóng/mở/submit,.." vì screen reader cần 1 cái tên.
+Tuy  nhiên không dùng aria-label khi đã có <label> là vì bị trùng thông tin vì vốn dĩ label for="abc" đã có thể cung cấp tên cho screen reader rồi 
+
 Câu B1 - Form đăng ký tài khoản
 
 HTML không thể validate confirm password là vì nó chỉ có thể check pattern của ô input chứ không thể kiểm tra được logic như ô input A phải trùng với input B nên không thể check confirm password được 
