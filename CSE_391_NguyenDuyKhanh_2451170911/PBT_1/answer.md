@@ -246,3 +246,46 @@ Câu A2  — Validation Attributes
 
 
 
+Câu C1  — Debug Form
+
+<form>
+    Tên: <input type="text">
+    
+    <input type="email" placeholder="Email của bạn">
+    
+    <input type="password" placeholder="Mật khẩu">
+    <input type="password" placeholder="Nhập lại mật khẩu">
+    
+    Phone: <input type="text" value="0901234567">
+    
+    <select>
+        <option>Hà Nội</option>
+        <option>TP.HCM</option>
+    </select>
+    
+    <label>
+        Tôi đồng ý điều khoản
+    </label>
+    
+    <input type="submit" value="Gửi">
+</form>
+
+
+Lỗi 1: Dòng 2 - Thiếu <label for ="name">...</label> -  vi phạm assessibility
+Sửa lại: thêm <label for="name">Tên:</label> vào trước input type="text" và thêm id="name" vào sau input type="text"
+Lỗi 2: Dòng 4 - Thiếu <label for="email">...</label> - vi phạm assessibility
+Sửa lại: thêm <label for="email">Email:</label> vào trước input type="email" và thêm id="email" vào sau input type="email" 
+Lỗi 3: Dòng 6 - Thiếu <label for="password">...</label> - vi phạm assessibility
+Sửa lại: thêm <label for="password">Mật khẩu:</label> vào trước input type="password" và thêm id="password" vào sau input type="password"
+Lỗi 4: Dòng 7 - Thiếu <label for="confirm_password">...</label> - vi phạm assessibility
+Sửa lại: thêm <label for="confirm_password">Nhập lại mật khẩu:</label> vào trước input type="password" và thêm id="confirm_password" vào sau input type="password"
+Lỗi 5: Dòng 6 và Dòng 7 mật khẩu và nhập lại mật khẩu không check chéo cho nhau được, cần đến JS, còn để như code đề bài thì kể cả không ghi trùng mật khẩu 
+thì vẫn submit được 
+Lỗi 6: Dòng 9 - Thiếu <label for="phone">...</label> - vi phạm assessibility
+Sửa lại: thêm <label for="phone">Phone:</label> vào trước input type="text" và thêm id="phone" vào sau input type="text" 
+Lỗi 7: Dòng 17 đang thiếu <input type="checkbox"> - vi phạm assessibility lẫn best practice vì ở mục đồng ý điều khoản luôn nên có checkbox nếu không
+người dùng sẽ không có lựa chọn và ngầm hiểu bị ép buộc đồng ý điều khoản, còn đối với dev thì sẽ không để ý đến nó vì nó chỉ là 1 đoạn thẻ p dễ dẫn đến 
+sai só
+Sửa lại: thêm <input type="checkbox" id="agree" name="agree" required> vào trước label Tôi đồng ý điều khoản và thêm for="agree" vào trong label
+Lỗi 8: Dòng 18 - Thiếu <button type="submit">...</button> - vi phạm best practice vì nên dùng button để submit thay vì cái input type="submit" để dễ dàng tùy chỉnh style hơn
+Sửa lại: thay <input type="submit" value="Gửi"> thành <button type="submit">Gửi</button>
