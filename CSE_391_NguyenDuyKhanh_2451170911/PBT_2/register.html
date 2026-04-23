@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset id="Personal-Information">
+            <legend>Thông tin cá nhân</legend>
+            <label for="Name">Họ tên:</label>
+            <input type="text" id="Name" name="Name" required
+            minlength="2", maxlength="50" placeholder="Nhập họ tên">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Nhập email">
+
+            <label for="Phone">Số điện thoại:</label>
+            <input type="tel" id="Phone" name="Phone" required
+            pattern="[0-9]{10}" placeholder="Nhập số điện thoại">
+
+            <label for="dob">Ngày sinh:</label>
+            <input type="date" id="dob" name="dob" required
+            max="2026-04-23">
+        </fieldset>
+        <fieldset id="Account">
+            <legend>Tài khoản</legend>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required
+            pattern="^[a-zA-Z0-9_]{3,20}$"
+            placeholder="Nhập tên tài khoản">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required
+            minlength="8"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){8,}$"
+            placeholder="Nhập mật khẩu">
+
+            <label for="confirm-password">Xác nhận Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required
+            minlength="8"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){8,}$"
+            placeholder="Xác nhận mật khẩu">      
+        </fieldset>
+
+        <fieldset id="Delivery-Information">
+            <legend>Thông tin giao hàng</legend>
+            <label for="City">Thành phố:</label>
+            <select name="City" id="City">
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hải Phòng">Hải Phòng</option>
+                <option value="Cần Thơ">Cần Thơ</option>
+            </select>
+            <label for="District">Quận/Huyện:</label>
+            <select name="District" id="District">
+                <option value="Auto">Auto</option>
+            </select>
+            <label for="Detailed-Address">Địa chỉ chi tiết:</label>
+            <textarea name="Detailed-Address" id="Detailed-Address" rows="3"
+            placeholder="Mời nhập địa chỉ chi tiết vào đây"></textarea>
+
+            <label for="Sex">Giới tính:</label>
+            <input type="radio" id="Male" name="Sex" value="Nam"><span>Nam</span>
+            <input type="radio" id="Female" name="Sex" value="Nữ"><span>Nữ</span>
+        </fieldset>
+
+        <label for="Agree">Đồng ý điều khoản</label>
+        <input type="checkbox" id="Agree" name="Agree" required>
+        <button type="submit">Đăng ký</button>
+    </form>
+</body>
+</html>
