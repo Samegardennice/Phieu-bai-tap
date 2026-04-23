@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang thanh toan</title>
+</head>
+<body>
+    <header>
+        <section id="Cart">
+            <h1>Giỏ hàng</h1>
+            <table border="1" style="border-collapse: collapse;" width="60%">
+                <thead>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Áo thun</td>
+                        <td>200.000đ</td>
+                        <td>2</td>
+                        <td>400.000đ</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Quần jeans</td>
+                        <td>500.000đ</td>
+                        <td>1</td>
+                        <td>500.000đ</td>
+                    </tr>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">Tổng tiền: 900.000đ</td>
+                        </tr>
+                    </tfoot>
+            </table>
+        </section>
+        <section id="Checkout">
+            <form action="#" method="post">
+              <h1>Thanh toán</h1>
+              <label for="CheckoutMethod">Phương thức thanh toán:</label>
+              <input type="radio" id="CheckoutMethod" name="paymentMethod" value="COD">
+              <span>COD</span>
+              <input type="radio" id="CheckoutMethod2" name="paymentMethod" value="ChuyenKhoan">
+              <span>Chuyển khoản</span>
+              <input type="radio" id="CheckoutMethod3" name="paymentMethod" value="Momo">
+              <span>Ví điện tử</span>
+              <br> <br>
+              <label for="Voucher">Mã giảm giá:</label>
+              <input type="text" id="Voucher" name="voucher"
+              placeholder="Nhập mã giảm giá nếu có"
+              pattern="^SALE\d{4}$">
+              <button type="submit" aria-label="Xác nhận đặt hàng">Thanh toán</button>
+            </form>
+        </section>
+        <section id="Delivery">
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Thông tin giao hàng</legend>
+                <label for="Delivery-Date">Ngày giao hàng mong muốn:</label>
+                <input type="date" id="Delivery-Date" name="deliveryDate" required
+                min="2026-4-23">
+                <label for="Time">Khung giờ:</label>
+                <select name="Time" id="Time">
+                    <option value="Morning">Sáng (8h-12h)</option>
+                    <option value="Afternoon">Chiều (14h-18h)</option>
+                    <option value="Evening">Tối (18h-21h)</option>
+                </select>
+                
+                <label for="Delivery-Time">Thời gian giao hàng:</label>
+                <input type="range" id="Delivery-Time" name="deliveryTime" required
+                min="1" max="7" step="1">
+                </fieldset>
+                <button type="submit" aria-label="Xác nhận đặt hàng">Xác nhận đặt hàng</button>
+            </form>
+        </section>
+    </header>
+</body>
+</html>
