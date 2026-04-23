@@ -57,6 +57,13 @@ Câu A4 - Media
 +) Doanh thu quý 1 năm 2026 của công ty 
 
 
+Câu A5 — So sánh <figure> vs <img>
+- Dùng cách 1 <img> khi ảnh không cần chú thích, ảnh đơn giản,ảnh không cần figcaption
+VD: Ảnh logo, ảnh icon, ảnh trang trí thì chỉ cần hiển thị là xong không cần chú thích gì thêm vì chúng chỉ bổ trợ hình ảnh cho trang web 
+- Dùng cách 2 <figure> khi ảnh cần có chú thích rõ ràng
+Vd: Ảnh chụp cho bài báo, ảnh chụp sản phẩm như laptop,điện thoại,... những ảnh này đều cần có chú thích figcation bên dưới để người dùng hiểu ngay đây là ảnh gì, thậm chí với các ảnh bài báo khoa học mà hình ảnh khó hiểu thì càng phải có figcation để tóm tắt,giải nghĩa nhanh. Figcation còn tăng khả năng SEO giúp trình duyệt nhận diện tốt đây là ảnh về cái gì cụ thể 
+
+
 
 
 
