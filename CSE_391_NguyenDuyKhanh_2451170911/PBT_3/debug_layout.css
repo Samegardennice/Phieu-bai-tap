@@ -1,0 +1,70 @@
+/* .container {
+    width: 960px;
+    margin: 0 auto;
+    
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    box-sizing: content-box;
+} */
+
+/* Cách đầu tiên: dùng border-box */
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    box-sizing: border-box;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    box-sizing: border-box;
+}
+
+/* 
+ Cách thứ 2 không dùng border-box thì em sẽ tính chay px 
+ cho mỗi hộp luôn
+
+ .container {
+    width: 960px;
+    margin: 0 auto;
+    
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+.content {
+    width: 540px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    box-sizing: content-box;
+} */
+
+/* Ở cách thứ 2 vì tối đa ta chỉ có 960px mà tổng sidebar và content lại là 300 + 20.2 + 660 + 30.2 
+=  1060px lớn hơn px tối đa được cấp tới 120px thế nên phải trừ số px vượt giới hạn này cho kích thước
+content của .content để đảm bảo tổng cả 2 box sẽ luôn là 960px vừa khít số px được cấp bởi .container
+mà vẫn tiếp tục được dùng content-box */
+
+
