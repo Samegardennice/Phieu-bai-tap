@@ -144,3 +144,38 @@ p.price { color: green; }             /* Rule D */
 *Nếu rule A thêm !important element sẽ có màu black bởi vì !important sẽ khiến thứ tự ưu tiên của p cao hơn các phần tử khác một bậc và ưu tiên cao hơn cả specifity
 
 
+Bài B1  — Style trang Profile
+- Các loại selector mà em đã sử dụng 
++) element
+
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:beige;
+    color:#556B2F;
+    line-height: 1.6;
+}
++) class
+
+.header-web {
+    background:linear-gradient();
+    color:white;
+    padding:20px;
+    background-color:rgb(201, 160, 131);
+}
+
++) descendant
+
+#Navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0px;
+    padding: 20px;    
+}
+
++) pseudo-class
+
+.active:hover {
+    color: #aeeba0 !important;
+}
