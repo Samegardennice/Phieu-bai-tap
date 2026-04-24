@@ -1,0 +1,34 @@
+
+p{
+    color: antiquewhite;       /* (0,0,1)*/ 
+}
+.text{
+    color: blue;    /* (0,1,0) */
+}
+p.text{
+    color:indigo /*(0,1,1)*/
+}
+p.highlight{
+    color: lawngreen;
+}
+.text.highlight{
+    color: burlywood;  /*(0,2,0)*/ 
+}
+
+p.text.highlight{
+    color: azure; /*(0,2,1)*/
+}
+#demo{
+    color: chartreuse; /*(1,0,0)*/
+}
+p#demo{
+    color: aqua; /*(1,0,1)*/
+}
+p#demo.text.highlight{
+    color:blueviolet  /*(1,2,1)*/
+}
+
+
+p#demo.text{
+    color: hotpink; /*(1,1,1)*/
+}

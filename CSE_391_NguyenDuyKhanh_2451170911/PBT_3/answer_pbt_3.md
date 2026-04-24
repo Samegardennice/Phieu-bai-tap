@@ -189,3 +189,46 @@ Giải thích sự khác biệt:
 - content-box là hành vi HTML4/CSS2 cũ — width chỉ apply cho content area. Padding và border "phình ra ngoài" thêm vào thế nên hộp 1 có 300px cho content lại gánh thêm 
 20px.2 2 bên của padding, thêm 5px.2 của 2 bên border thế là tổng width của box bị gộp lại thành 300 + 40 + 10 = 350
 - border-box thì sẽ hiện đại hơn đó là nó sẽ cố đưa padding và border co vào bên trong tức là ban đầu ra cung cấp 300px thì border-box sẽ tính toán và chia sẻ bớt px của thằng content bên trong và chia cho padding và border để mọi thứ vừa khít với 300px ban đầu được cung cấp. Vậy nên ta có thể thấy width hộp là 300 và content chỉ có 250 là do phải chia sẻ bớt 40px cho 2 padding hai bên và 2 border cho 2 bên mỗi cái 5px là 10px
+
+Bài B3 - Specificity Battle
+
+- 10 CSS rules khác nhau cùng target lên thẻ p là: 
+
+1) p{
+    color: antiquewhite;       /* (0,0,1)*/ 
+}
+2) .text{
+    color: blue;    /* (0,1,0) */
+}
+3) p.text{
+    color:indigo /*(0,1,1)*/
+}
+4) p.highlight{
+    color: lawngreen;
+}
+5) .text.highlight{
+    color: burlywood;  /*(0,2,0)*/ 
+}
+
+6) p.text.highlight{
+    color: azure; /*(0,2,1)*/
+}
+7) #demo{
+    color: chartreuse; /*(1,0,0)*/
+}
+8) p#demo{
+    color: aqua; /*(1,0,1)*/
+}
+9) p#demo.text{
+    color: hotpink; /*(1,1,1)*/
+}
+10) p#demo.text.highlight{
+    color:blueviolet  /*(1,2,1)*/
+}
+
+=> Element cuối sẽ hiển thị màu tím xanh blueviolet vì đây là rule có quyền áp dụng mạnh nhất bởi nó có bộ chỉ số điểm specificity
+là (1,2,1) cao nhất trong số các rules
+
+-Kể cả có thay đổi thứ tự các rule trong file CSS thì kết quả vẫn sẽ không thay đổi, màu của thẻ p vẫn sẽ là màu blueviolet bởi vì
+CSS có thứ tự ưu tiên theo rules chứ không phải thứ tự viết trong code, rules nào có tổng điểm Specificity score cao nhất sẽ được ưu 
+tiên áp dụng cao nhất.
