@@ -179,3 +179,13 @@ Bài B1  — Style trang Profile
 .active:hover {
     color: #aeeba0 !important;
 }
+
+
+Bài B2 - Box Model Lab
+
+Hộp 1 (content-box): chiều rộng thực tế = 300 px (đo từ DevTools)
+Hộp 2 (border-box): chiều rộng thực tế = 250 px (đo từ DevTools)
+Giải thích sự khác biệt: 
+- content-box là hành vi HTML4/CSS2 cũ — width chỉ apply cho content area. Padding và border "phình ra ngoài" thêm vào thế nên hộp 1 có 300px cho content lại gánh thêm 
+20px.2 2 bên của padding, thêm 5px.2 của 2 bên border thế là tổng width của box bị gộp lại thành 300 + 40 + 10 = 350
+- border-box thì sẽ hiện đại hơn đó là nó sẽ cố đưa padding và border co vào bên trong tức là ban đầu ra cung cấp 300px thì border-box sẽ tính toán và chia sẻ bớt px của thằng content bên trong và chia cho padding và border để mọi thứ vừa khít với 300px ban đầu được cung cấp. Vậy nên ta có thể thấy width hộp là 300 và content chỉ có 250 là do phải chia sẻ bớt 40px cho 2 padding hai bên và 2 border cho 2 bên mỗi cái 5px là 10px
