@@ -57,4 +57,38 @@ p{
 
 *Nếu dùng cả 3 cách CSS đồng thời được áp dụng thì k có cái nào thắng mà chỉ có cái nào được ưu tiên sử dụng. Nếu cùng sử dụng trong 1 file html thì cách dùng CSS nằm ở vị trí dưới cùng sẽ được ưu tiên áp dụng cho trang web vì code sẽ được đọc từ trên xuống dưới và cái nằm dưới cùng sẽ được ưu tiên chạy cao nhất 
 
+Câu A2  — CSS Selectors — Dự đoán kết quả
+<div id="app">
+    <header class="top-bar dark">
+        <h1>ShopTLU</h1>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+    <main>
+        <article class="product">
+            <h2>iPhone 16</h2>
+            <p class="price">25.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+        <article class="product featured">
+            <h2>MacBook Pro</h2>
+            <p class="price">45.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+    </main>
+</div>
+
+Các element sẽ được chọn bởi các selector tương ứng
+
+1. h1                           → Chọn: ShopTLu
+2. .price                       → Chọn: 45.990.000
+3. #app header                  → Chọn: ShopTlu Home Products About
+4. nav a:first-child             → Chọn: Home
+5. .product.featured h2         → Chọn: Macbook pro 
+6. article > p                  → Chọn: 25.990.000 Mô tả sản phẩm  45.990.000 Mô tả sản phẩm 
+7. a[href="/"]                  → Chọn: Home Products About
+8. .top-bar.dark h1              → Chọn: ShopTLU
 
