@@ -232,3 +232,24 @@ là (1,2,1) cao nhất trong số các rules
 -Kể cả có thay đổi thứ tự các rule trong file CSS thì kết quả vẫn sẽ không thay đổi, màu của thẻ p vẫn sẽ là màu blueviolet bởi vì
 CSS có thứ tự ưu tiên theo rules chứ không phải thứ tự viết trong code, rules nào có tổng điểm Specificity score cao nhất sẽ được ưu 
 tiên áp dụng cao nhất.
+
+
+Câu C2  — Cascade Puzzle
+"Sản phẩm A" (h2) có font-size = 20px và color = Red
+-> <h2 class="title highlight">Sản phẩm A</h2> có kế thừa từ card và container hay featured nên #featured .title { color: red; }
+sẽ áp dụng được lên <h2 class="title highlight">Sản phẩm A</h2>, và #featured .title { color: red; } cũng là dòng có specificity score cao nhất
+tới (1,1,0) là cao nhất trong các thẻ chứa <h2 class="title highlight">Sản phẩm A</h2>
+
+
+"Mô tả sản phẩm" (p trong card featured) có color = blue
+> .card { color: blue; } sẽ quyết định màu của "Mô tả sản phẩm" (p trong card featured) vì đây là selector duy nhất có chứa thuộc tính style màu sắc 
+cho thẻ con là <p>Mô tả sản phẩm</p>
+
+"Sản phẩm B" (h2) có font-size = 20px và color = Red 
+-> Màu sẽ là Red vì #featured .title { color: red; } có specificity score cao nhất và chứa "Sản phẩm B" (h2), đồng thời
+.card .title { font-size: 20px; } cũng sẽ có specificity score cao nhất trong các selector có chứa "Sản phẩm B" (h2) có thuộc
+tính style font-size
+
+"Mô tả sản phẩm B" (p.highlight) có color = green
+-> Vì .highlight { color: green !important; } có độ ưu tiên cao nhất do có !important thậm chí còn cao hơn specificity bình thường
+
