@@ -127,3 +127,20 @@ làm khoảng cách giữa 2 box thế nên sẽ lấy 40px thay vì là 65px
 
 
 
+Câu A4  — Specificity (Độ ưu tiên)
+1.
+p { color: black; }                    /* Rule A */
+.price { color: blue; }               /* Rule B */
+#main-price { color: red; }           /* Rule C */
+p.price { color: green; }             /* Rule D */
+
+- Rule A có (0,0,1) 
+- Rule B có (0,1,0 )
+- Rule C có (1,0,0)
+- Rule D có (0,1,1)
+=> Thứ tự từ ưu tiên cao đến thấp là Rule C -> Rule D -> Rule B -> Rule A
+*Nếu thêm <p class="price" id="main-price" style="color: orange;">, element có màu cam bởi vì đó là style inline viết thêm sau cùng nên sẽ ưu tiên lấy code style ở dưới cùng nên sẽ ưu tiên lấy màu cam
+
+*Nếu rule A thêm !important element sẽ có màu black bởi vì !important sẽ khiến thứ tự ưu tiên của p cao hơn các phần tử khác một bậc và ưu tiên cao hơn cả specifity
+
+
