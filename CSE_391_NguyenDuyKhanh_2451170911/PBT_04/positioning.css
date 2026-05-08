@@ -1,0 +1,61 @@
+header{
+    height: 60px;
+    width: 100%;
+    background-color: orange;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+    position: fixed;
+    align-content: center;
+}
+
+header img{
+    padding: 10px;
+}
+header nav{
+    align-items: center;
+}
+header nav {
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+}
+nav a{
+    text-decoration: none;
+    font-size: large;
+    color: white;
+}
+#sticky-sidebar{
+    position: sticky;
+    top: 180px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    height: 100px;
+}
+.Card-product{
+    height: 800px;
+    box-sizing: border-box;
+    width: 750px;
+    left: 250px;
+    position: relative;
+    border: 2px solid brown;
+}
+.Card-product #Badge{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: large;
+    background-color: rgb(250, 49, 49);
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    
+}
