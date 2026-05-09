@@ -16,3 +16,38 @@ static
 
 ---
 
+**Câu A2 - Flexbox vs Grid**
+
+- Trường hợp 1 
+=> có 4 items thì thành  " | a b c d | "
+
+- Trường hợp 2
+=> có 6 items mà mỗi item chiếm 50%  thì thành 
+
+" | a b |
+
+  | c d |
+
+  | e f | "    
+
+- Trường hợp 3:
+
+|a  b  c|
+
+- Trường hợp 4: 
+
+|a <---> b <---> c|
+
+với <---> là 20px, a , c mỗi cái 200px còn b chiếm ở giữa là phần còn lại của độ rộng web trừ đi 400px
+
+- Trường hợp 5:
+
+repeat(3,1fr); gap 10px tức là chia đều 3 cột mỗi cái cách nhau 10px
+
+7 items thì sẽ chia làm 3 cột 3 hàng vì mỗi cột chỉ chứa đc 3 phần tử nên sẽ phải có 1 phần tử cuối bị dồn xuống thành 1 hàng mới và có cột là cột 1 
+
+| a b c |
+
+| d e f |
+
+|i      |
