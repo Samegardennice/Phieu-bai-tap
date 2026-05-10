@@ -72,3 +72,122 @@ Mobile-First được khuyên dùng vì điện thoại tải ít CSS hơn → n
 | 1400px | 1140px |
 
 
+**Câu A4 - SCSS Basics**
+
+1.Variables ($primary-color)
+
+Cái này gọi là biến, bằng cách khai báo biến ta có thể dùng biến đó mà không cần chỉnh lại bằng tay thủ công 
+
+Ví dụ:
+
+```c
+// Khai báo biến
+$primary: #805ad5;
+$danger: #e53e3e;
+$font-body: 'Inter', sans-serif;
+$radius: 8px;
+
+// Sử dụng
+.btn-primary {
+    background: $primary;
+    border-radius: $radius;
+    font-family: $font-body;
+}
+
+.header {
+    background: $primary;       // Đổi $primary = đổi tất cả!
+}
+```
+
+2.Nesting (viết CSS lồng nhau)
+
+Tức là viết CSS theo cấu trúc html
+
+Ví dụ:
+
+```c
+.navbar {
+    background: #1a202c;
+    padding: 16px;
+    
+    ul {
+        list-style: none;
+        display: flex;
+        
+        li {
+            margin-right: 24px;
+            
+            a {
+                color: white;
+                text-decoration: none;
+                
+                &:hover {    // & = thẻ cha (a)
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+```
+3.Mixins (@mixin, @include)
+
+Cái này là dạng hàm CSS tái sử dụng , có thể dùng lại khi cần 1 style bằng 1 cụm thuộc tính nào đó thì viết sẵn hàm chứa các thuộc tính đó,khi cần chỉ việc gọi ra đỡ phải viết lại
+
+Ví dụ:
+
+```c
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == tablet {
+        @media (min-width: 768px) { @content; }
+    } @else if $breakpoint == desktop {
+        @media (min-width: 1024px) { @content; }
+    }
+}
+
+// Sử dụng
+.hero { 
+    @include flex-center;
+    height: 100vh;
+}
+
+.grid {
+    grid-template-columns: 1fr;
+    
+    @include responsive(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include responsive(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+```
+
+4.@extend / Inheritance
+
+Đây là kiểu kế thừa giống trong oop, tức là nếu có 1 phần tử có style r, phần tử khác muốn style y hệt cái đầu nhưng có thêm thuộc tính khác thì nó sẽ kế thừa cái đầu thay vì phải lặp code lại từ đầu
+
+Ví dụ:
+
+```c
+.button {
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+}
+.blue-btn {
+    @extend .button;
+    background: blue;
+}
+
+.red-btn {
+    @extend .button;
+    background: red;
+}
+```
