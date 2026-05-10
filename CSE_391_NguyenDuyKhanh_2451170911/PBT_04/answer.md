@@ -51,3 +51,16 @@ repeat(3,1fr); gap 10px tức là chia đều 3 cột mỗi cái cách nhau 10px
 | d e f |
 
 |i      |
+
+**Câu C1 — Flexbox vs Grid: Khi nào dùng gì?**
+
+1. Navigation bar ngang (logo + menu + buttons) cái này thì thường dùng flex vì logo,menu,button đều nằm trong 1 thanh ngang và là 1 chiều vì đều nằm trên cùng 1 hàng, thật ra cả grid cũng làm được nhưng làm bằng flex đơn giản và tiết kiệm th gian hơn
+
+2. Trường hợp này phải dùng grid vì liên quan tới layout theo hàng,cột đã thế số ảnh còn k biết trước nên phải có layout cột grid để xếp trước 
+
+3. Layout blog thì dùng grid để chia các section bằng cột cho đẹp, grid có cột rõ ràng và quy định được số lượng phần tử sẽ có trên hàng và số cột, còn flex thì cũng làm được bằng flex item nhưng chỉ khi k còn chỗ mới xuống dòng dễ khiến layout vỡ nếu các item k đồng đều. Còn nội dung bên trong của main content và sidebar thì dùng flex dễ căn chỉnh các phần tử bên trong 
+
+4. Cái này thì nên dùng cả flex và grid, grid để chia cột bố cục, flex để căn chỉnh các phần tử bên trong 1 cách dễ dàng
+
+5. Card sản phẩm này bố cục theo chiều dọc thì dùng luôn flex và cho direction là columm luôn k cần chia cột phức tạp, layout card này nên dùng flex vì không cần bố cục theo các cột rõ ràng, chỉ cần dùng flex theo chiều dọc là quá đủ
+
