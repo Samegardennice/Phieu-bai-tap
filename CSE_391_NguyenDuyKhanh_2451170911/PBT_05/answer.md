@@ -51,3 +51,13 @@ Ví dụ Desktop-First
 
 Mobile-First được khuyên dùng vì điện thoại tải ít CSS hơn → nhanh hơn. Desktop thêm CSS = OK. Ngược lại = lãng phí.
 
+**Câu A2-Breakpoints**
+
+| Tên | Kích thước | Thiết bị |
+|---|---|---|
+| xs | < 576px | Điện thoại dọc |
+| sm | ≥ 576px | Điện thoại ngang |
+| md | ≥ 768px | Tablet |
+| lg | ≥ 992px | Desktop nhỏ |
+| xl | ≥ 1200px | Desktop lớn |
+
