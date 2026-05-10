@@ -61,3 +61,14 @@ Mobile-First được khuyên dùng vì điện thoại tải ít CSS hơn → n
 | lg | ≥ 992px | Desktop nhỏ |
 | xl | ≥ 1200px | Desktop lớn |
 
+**Câu A3-Media Queries**
+
+| Chiều rộng màn hình | .container width |
+|---|---|
+| 375px (iPhone SE) | 100% |
+| 600px | 540px |
+| 800px | 720px |
+| 1000px | 960px |
+| 1400px | 1140px |
+
+
