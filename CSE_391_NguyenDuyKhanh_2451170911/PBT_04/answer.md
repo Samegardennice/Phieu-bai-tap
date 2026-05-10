@@ -64,3 +64,52 @@ repeat(3,1fr); gap 10px tức là chia đều 3 cột mỗi cái cách nhau 10px
 
 5. Card sản phẩm này bố cục theo chiều dọc thì dùng luôn flex và cho direction là columm luôn k cần chia cột phức tạp, layout card này nên dùng flex vì không cần bố cục theo các cột rõ ràng, chỉ cần dùng flex theo chiều dọc là quá đủ
 
+**Câu C2 - Debug Flexbox**
+
+Lỗi 1
+
+Card chưa đều chiều cao là chưa căn trục dọc bằng nhau, còn nút mua bị nhảy lên xuống là do cái img chiếm hết 100% chiêu ngang card rồi nên các item còn lại bị lòi ra ngoài. Bây giờ sửa thì cho card dùng flex để đưa hết về cùng 1 hàng k để bị lòi ra ngoài nữa, đồng thời cho chiều cao bằng nhau 
+
+Sửa code:
+
+```c
+.card-container { display: flex; flex-wrap: wrap; border: 1px solid;}
+.card { width: 30%; margin: 1.5%; border: 1px double;display: flex;box-sizing: border-box;
+align-items: center; gap: 20px;}
+.card img { width: 100%; }
+.card h3 { font-size: 18px; }
+.card .btn { padding: 10px; }
+```
+
+Lỗi 2
+
+.hero chưa căn center cho trục dọc và ngang, căn lại là xong
+
+Sửa code
+
+```c
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-content {
+    text-align: center;
+}
+```
+Lỗi 3
+
+Do flex:1 có shrink 1 cho phép co nên nó sẽ chiếm không gian của phần tử còn lại trong layout, muốn sửa phải cho sidebar không được phép co mà phải giữ cố định 
+
+Sửa code
+
+```c
+.layout { display: flex; }
+.sidebar { width: 250px;border: 1px solid; flex: 0 0 250px;}
+.content { flex: 1; }
+p{
+    width: 100%;
+}
+```
+
