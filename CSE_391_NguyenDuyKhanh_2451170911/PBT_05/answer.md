@@ -196,3 +196,10 @@ Ví dụ:
 **B3 - SCSS Refactor**
 
 Lệnh compile: sass scss/style.scss css/style.css
+
+
+**Bài C1**
+
+Ở trang login của shopee không thấy bất cứ thay đổi nào, cả mobile hay desktop đều như nhau 
+
+Ở trang chủ burger và nav biến mất trên mobile, và độ dài thanh tìm kiếm cũng giảm khác với desktop hiển thị đầy đủ
