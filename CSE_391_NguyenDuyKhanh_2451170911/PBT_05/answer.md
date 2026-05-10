@@ -203,3 +203,118 @@ Lệnh compile: sass scss/style.scss css/style.css
 Ở trang login của shopee không thấy bất cứ thay đổi nào, cả mobile hay desktop đều như nhau 
 
 Ở trang chủ burger và nav biến mất trên mobile, và độ dài thanh tìm kiếm cũng giảm khác với desktop hiển thị đầy đủ
+
+**Bài C2**
+
+Layout html trước
+
+```c
+<header>...</header>
+
+<section class="hero"></section>
+
+<main class="container">
+
+    <section class="gallery">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </section>
+
+    <aside class="booking-form"></aside>
+
+</main>
+
+<section class="map">..</section>
+
+<footer></footer>
+```
+
+Layout sơ sơ qua cho css:
+
+```c
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+header{
+    padding: 20px;
+    background: #ddd;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero{
+    height: 300px;
+    background: #bbb;
+}
+
+.container{
+    padding: 20px;
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.item{
+    height: 150px;
+    background: #ccc;
+}
+
+.booking-form{
+    margin-top: 20px;
+    min-height: 300px;
+    background: #e5e5e5;
+}
+
+.map{
+    height: 300px;
+    background: #f2d8d8;
+    margin-top: 20px;
+}
+
+footer{
+    padding: 30px;
+    background: #f6cece;
+}
+
+@media (min-width: 768px){
+
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 1200px){
+
+    .container{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .gallery{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .booking-form{
+        margin-top: 0;
+    }
+
+}
