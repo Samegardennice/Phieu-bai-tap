@@ -191,3 +191,8 @@ Ví dụ:
     background: red;
 }
 ```
+
+
+**B3 - SCSS Refactor**
+
+Lệnh compile: sass scss/style.scss css/style.css
