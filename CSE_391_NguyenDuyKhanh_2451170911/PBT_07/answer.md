@@ -33,3 +33,23 @@ console.log([] + {}); in ra "[object Object ]"
 console.log({} + []); in ra "[object Object]
 
 => "5" + 3 sẽ khác "5" - 3 vì khi đã có 1 chuỗi mà thêm sau nó là dấu cộng js sẽ hiểu là nối chuỗi và nối luôn phần cộng vào chuỗi cũ còn dấu - không nối chuỗi được nên js sẽ hiểu đây là phép tính số và chuyển "5" thành 5 để có thể thực hiện phép trừ cho 3 
+
+**Câu A3**
+
+console.log(5 == "5");   in ra true vì == cho ép kiểu bên trái có 5 rồi thì "5" sẽ bị ép thành 5 để so sánh        
+
+console.log(5 === "5");   in ra false vì === bắt phải giống cả kiểu mới cho so sánh là đúng       
+
+console.log(null == undefined); in ra true
+
+console.log(null === undefined); in ra false     
+
+console.log(NaN == NaN);    in ra false vì js quy định NaN không bằng cái gì kể cả chính nó
+
+console.log(0 == false);       in ra true vì false bị ép kiểu thành 0
+
+console.log(0 === false);      in ra false
+
+console.log("" == false);      in ra true vì ép kiểu liên hoàn false->0->""
+
+Từ giờ trở đi tốt nhất cứ dùng === vì rõ ràng, không bị nhầm lẫn,dễ bảo trì code, không cần nhớ các quy tắc lằng nhằng của js 
