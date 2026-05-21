@@ -21,5 +21,5 @@ switch(operator){
     case "**":
         return num1**num2;
     default:
-        return "operator không hợp lệ";
+        return "operator chưa hợp lệ";
 }
