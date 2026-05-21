@@ -53,3 +53,21 @@ console.log(0 === false);      in ra false
 console.log("" == false);      in ra true vì ép kiểu liên hoàn false->0->""
 
 Từ giờ trở đi tốt nhất cứ dùng === vì rõ ràng, không bị nhầm lẫn,dễ bảo trì code, không cần nhớ các quy tắc lằng nhằng của js 
+
+**Câu A4**
+
+if ("0") console.log("A");    có in ra A
+
+if ("") console.log("B");     không in gì vì "" chuỗi rỗng là falsy
+
+if ([]) console.log("C");     có in vì array là 1 object 
+
+if ({}) console.log("D");     có in vì Object  là truthy
+
+if (null) console.log("E");    không in vì là falsy
+
+if (0) console.log("F");        không in vì 0 là falsy
+
+if (-1) console.log("G");       có in ra G 
+
+if (" ") console.log("H");      có in ra H vì chuỗi có chứa space không tính là chuỗi rỗng      
