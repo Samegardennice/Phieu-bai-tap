@@ -1,27 +1,74 @@
-PBT_1
+# PBT_1
 
+---
 
+# Câu A1 — HTTP & Browser
 
-**Câu A1 — HTTP & Browser
-Trả lời:
+## Trả lời
 
-1. Đầu tiên máy tính phải tiến hành "DNS look up" tức là phân giải địa chỉ dns tên miền của shopee.vn thông qua trình duyệt đang sử dụng , ví dụ của em hay dùng là Cốc Cốc thì Cốc Cốc phải tự tìm từu bộ nhớ cache xem trong vài giờ trước đã từng vào Shopee.vn chưa nếu rồi thì có thể lấy ra luôn ip chính xác còn không tìm được -> gửi request hỏi router wifi phòng trọ xem trong cache còn chứa cái địa chỉ ip của shopee không, nếu cũng không -> gửi request hỏi DNS sever nhà mạng vnpt ( tới đây chắc chắn có vì dns sever của vnpt có hầu hết ip web phổ biến ở việt nam )
+### 1. DNS Lookup
 
-2. Sau khi có được địa chỉ ip chính xác của shopee.vn, trình duyệt từ máy tính sẽ gửi http request từ laptop của em -> router nhà trọ -> đi qua nhà mạng vnpt -> đến máy chủ của shopee 
+Đầu tiên máy tính phải tiến hành "DNS look up", tức là phân giải địa chỉ DNS tên miền của `shopee.vn` thông qua trình duyệt đang sử dụng.
 
-3. Sever của shopee sẽ phải xử lí request đó, xử lí xong thì tạo 1 http response ,bên trong có chứa nội dung html,js,json,css
+Ví dụ của em hay dùng là Cốc Cốc thì:
 
-4. Response đó chạy ngược lại: cáp quang → VNPT → router trọ → máy tính
+* Cốc Cốc sẽ tự tìm từ bộ nhớ cache xem trong vài giờ trước đã từng vào `Shopee.vn` chưa.
+* Nếu rồi thì có thể lấy ra luôn IP chính xác.
+* Nếu không tìm được:
 
-5. Cốc cốc nhận file HTML, CSS, JS → render ra giao diện của shopee bản pc gồm các page,danh sách sản phẩm,...
+  * Gửi request hỏi router WiFi phòng trọ xem trong cache còn chứa địa chỉ IP của Shopee không.
+  * Nếu cũng không:
 
+    * Gửi request hỏi DNS Server nhà mạng VNPT.
 
-====>Tài liệu tham khảo: 01_introduction_html_universe.md (Cuộc Hành Trình 0.3 Giây Xuyên Đại Dương)
+Tới đây chắc chắn có vì DNS Server của VNPT có hầu hết IP web phổ biến ở Việt Nam.
 
-**Câu A2  — Semantic HTML
+### 2. Gửi HTTP Request
 
-*Code gốc đề bài:
+Sau khi có được địa chỉ IP chính xác của `shopee.vn`, trình duyệt từ máy tính sẽ gửi HTTP Request:
 
+```text
+Laptop → Router nhà trọ → Nhà mạng VNPT → Máy chủ Shopee
+```
+
+### 3. Server xử lý Request
+
+Server của Shopee sẽ xử lí request đó, xử lí xong thì tạo một HTTP Response.
+
+Bên trong response có chứa:
+
+* HTML
+* CSS
+* JavaScript
+* JSON
+
+### 4. Response trả ngược lại
+
+```text
+Cáp quang → VNPT → Router trọ → Máy tính
+```
+
+### 5. Browser Render
+
+Cốc Cốc nhận file HTML, CSS, JS → render ra giao diện của Shopee bản PC gồm:
+
+* Các page
+* Danh sách sản phẩm
+* ...
+
+## Tài liệu tham khảo
+
+`01_introduction_html_universe.md`
+
+> Cuộc Hành Trình 0.3 Giây Xuyên Đại Dương
+
+---
+
+# Câu A2 — Semantic HTML
+
+## Code gốc đề bài
+
+```html
 <div class="header">
     <div class="logo">ShopTLU</div>
     <div class="menu">
@@ -29,6 +76,7 @@ Trả lời:
         <div><a href="/products">Sản phẩm</a></div>
     </div>
 </div>
+
 <div class="main">
     <div class="product">
         <div class="title">iPhone 16 Pro</div>
@@ -36,27 +84,36 @@ Trả lời:
         <div class="image"><img src="iphone.jpg"></div>
     </div>
 </div>
+
 <div class="footer">© 2026 ShopTLU</div>
+```
 
+## Nhận xét
 
--> Web này bị google đánh giá SEO thấp vì khi đọc google không hiểu được cấu trúc web do dùng toàn thẻ div , google không hiểu được ngữ cảnh rõ ràng của trang web khiến google có thể hiểu sai nội dung web khiến SEO giảm đi
+Web này bị Google đánh giá SEO thấp vì khi đọc Google không hiểu được cấu trúc web do dùng toàn thẻ `div`.
 
--> các lỗi sai semantic trong code đề bài:
-+) <div class="header"> phải dùng <header>
-+) <div class="footer"> phải dùng <footer>
-+) <div class="menu"> phải dùng  <nav>
-+) <div class="image"> phải dùng <figure>
-+) <div class="main"> nên dùng <main>
+Google không hiểu được ngữ cảnh rõ ràng của trang web khiến có thể hiểu sai nội dung web, từ đó SEO giảm đi.
 
-*Sửa lại code:
+## Các lỗi semantic trong code đề bài
 
+* `<div class="header">` phải dùng `<header>`
+* `<div class="footer">` phải dùng `<footer>`
+* `<div class="menu">` phải dùng `<nav>`
+* `<div class="image">` phải dùng `<figure>`
+* `<div class="main">` nên dùng `<main>`
+
+## Sửa lại code
+
+```html
 <header>
     <div class="logo">ShopTLU</div>
+
     <nav>
         <div><a href="/">Trang chủ</a></div>
         <div><a href="/products">Sản phẩm</a></div>
     </nav>
 </header>
+
 <main>
     <div class="product">
         <div class="title">iPhone 16 Pro</div>
@@ -64,14 +121,23 @@ Trả lời:
         <figure><img src="iphone.jpg"></figure>
     </div>
 </main>
+
 <footer>© 2026 ShopTLU</footer>
+```
 
-====>Tài liệu tham khảo: 04_visible_part_html.md (🏗️ Semantic HTML5 — "Thẻ có ý nghĩa")
+## Tài liệu tham khảo
 
+`04_visible_part_html.md`
 
-**Câu A3 — Block vs Inline
+> 🏗️ Semantic HTML5 — "Thẻ có ý nghĩa"
 
-*Code gốc của đề bài:
+---
+
+# Câu A3 — Block vs Inline
+
+## Code gốc của đề bài
+
+```html
 <div>Hộp 1</div>
 <span>Text A</span>
 <span>Text B</span>
@@ -79,75 +145,157 @@ Trả lời:
 <span>Text C</span>
 <strong>Text D</strong>
 <div>Hộp 3</div>
+```
 
--> Kết quả hiển thị của code theo textart sẽ là:
-[ Hộp 1
-  Text A Text B
-  Hộp 2
-  Text C 𝐓𝐞𝐱𝐭 𝐃
-  Hộp 3 ]
+## Kết quả hiển thị theo textart
 
--> giải thích: 
-+) Thẻ <div> là một thẻ block vì vậy nó sẽ luôn xuống 1 dòng mới khi được viết, đồng thời nó cũng sẽ luôn chiếm nguyên 1 dòng vì vậy nội dung text như "Hộp 1","Hộp 2","Hộp 3" sẽ được viết trên 1 dòng và chiếm luôn cả 1 dòng đó do chúng được bọc trong thẻ <div>
-+) Thẻ <span> là thẻ inline nên nội dung bên trong không xuống dòng khi viết và nằm trên cùng 1 dòng luôn nếu đó là 2 thẻ inline viết cạnh nhau nên "Text A" , "Text B" hay "Text C" sẽ nằm trên cùng 1 dòng với nhau vì được bọc trong <span>
-+) Thẻ <strong> cũng giống span nhưng chỉ khác là sẽ bôi đậm nội dung bên trong thế nên "Text D" sẽ được in đậm vì nằm trong thẻ <strong>
+```text
+Hộp 1
+Text A Text B
+Hộp 2
+Text C TEXT D
+Hộp 3
+```
 
-====>Tài liệu tham khảo: 04_visible_part_html.md (📊 Block vs Inline — Hai loại element cơ bản)
+## Giải thích
 
-**Câu Câu A4  — Table
+### Thẻ `<div>`
 
-- Sự khác nhau giữa <thead>, <tbody>, <tfoot>
-+) <thead>  dùng để chứa tiêu đề của bảng gồm tiêu đề của các cột trong bảng  
-+) <tbody> là thân bảng,nơi chứa nội dung chính của bảng bao gồm các dòng dữ liệu
-+) <tfoot> có vai trò là footer,chức năng là tổng kết lại bảng,được viết ở dưới cùng
+* Là thẻ block.
+* Luôn xuống dòng mới khi được viết.
+* Luôn chiếm nguyên một dòng.
 
-- Không nên dùng table để tạo layout cho trang web vì:
+Vì vậy:
 
-1. <table> là thẻ được thiết kế để hiển thị dữ liệu dạng bảng, không phải để dựng layout, nếu dùng table dựng layout thì có thể làm code trở nên không đúng ý nghĩa khi được đọc bởi trình duyệt,sai semantic từ đó sẽ bị đánh giá SEO thấp đi
+* "Hộp 1"
+* "Hộp 2"
+* "Hộp 3"
 
-2. Làm layout bằng table sẽ khá rối và khó quản lí, mở rộng bởi nếu làm layout bằng table ta phải lồng nhiều thẻ <table> và các thẻ con của nó rất lằng nhằng, gây khó khăn khi muốn chỉnh sửa lớn trên giao diện. Dùng Grid/Flexbox sẽ hợp lí hơn
+sẽ nằm trên các dòng riêng.
 
-3. Khó tương thích trên các thiết bị khác ngoài máy tính như điện thoại,máy tính bảng vv... do table khó co giãn theo kích thước màn hình trên các thiết bị này 
+### Thẻ `<span>`
 
-====> Tài liệu tham khảo: 
-+) 05_tables_hyperlinks.md ("Bảng Giá Sản Phẩm Đầu Tiên" — Minh làm trang e-commerce")
-+) 05_tables_hyperlinks.md (📊 Table — Bảng dữ liệu)
+* Là thẻ inline.
+* Không xuống dòng.
+* Nằm trên cùng một dòng nếu viết cạnh nhau.
 
+Vì vậy:
 
+* `Text A`
+* `Text B`
+* `Text C`
 
+sẽ nằm cùng dòng.
 
+### Thẻ `<strong>`
 
-Bài B3 — Debug HTML
-- Code gốc của đề bài:
-<!DOCTYPE>  // Sai phải DOCTYPE HTML 
+Thẻ `<strong>`` cũng giống span nhưng sẽ bôi đậm nội dung bên trong.
+
+Vì vậy `Text D` sẽ được in đậm.
+
+## Tài liệu tham khảo
+
+`04_visible_part_html.md`
+
+> 📊 Block vs Inline — Hai loại element cơ bản
+
+---
+
+# Câu A4 — Table
+
+## Sự khác nhau giữa `<thead>`, `<tbody>`, `<tfoot>`
+
+### `<thead>`
+
+Dùng để chứa tiêu đề của bảng gồm tiêu đề của các cột.
+
+### `<tbody>`
+
+Là thân bảng, nơi chứa nội dung chính của bảng bao gồm các dòng dữ liệu.
+
+### `<tfoot>`
+
+Có vai trò là footer, dùng để tổng kết bảng.
+
+---
+
+## Không nên dùng table để tạo layout cho trang web vì
+
+### 1. Sai mục đích sử dụng
+
+`<table>` được thiết kế để hiển thị dữ liệu dạng bảng, không phải để dựng layout.
+
+Nếu dùng table dựng layout:
+
+* Code không đúng ý nghĩa.
+* Sai semantic.
+* SEO bị giảm.
+
+### 2. Khó quản lí và mở rộng
+
+Làm layout bằng table thường:
+
+* Rối.
+* Phải lồng nhiều thẻ table.
+* Khó chỉnh sửa.
+
+Dùng Grid/Flexbox sẽ hợp lí hơn.
+
+### 3. Responsive kém
+
+Khó tương thích trên:
+
+* Điện thoại
+* Máy tính bảng
+* Các màn hình nhỏ
+
+vì table khó co giãn theo kích thước màn hình.
+
+## Tài liệu tham khảo
+
+* `05_tables_hyperlinks.md`
+
+  * "Bảng Giá Sản Phẩm Đầu Tiên" — Minh làm trang e-commerce
+* `05_tables_hyperlinks.md`
+
+  * 📊 Table — Bảng dữ liệu
+
+---
+
+# Bài B3 — Debug HTML
+
+## Code gốc của đề bài
+
+```html
+<!DOCTYPE>
 <html>
 <head>
     <title>Trang web
-    <meta charset="utf8">      // Thiếu </title>
+    <meta charset="utf8">
 </head>
 <body>
-    <h1>Welcome to ShopTLU<h1> // Sai phải </h1>
-    
+    <h1>Welcome to ShopTLU<h1>
+
     <header>
         <nav>
-            <a href="home">Trang chủ<a>  // sai phải </a>
+            <a href="home">Trang chủ<a>
             <a href="products">Sản phẩm</a>
         </nav>
     </header>
-    
+
     <main>
         <section>
             <h3>Sản phẩm hot</h3>
-            <img src=iphone.jpg> // Sai thiếu ""
+            <img src=iphone.jpg>
             <p>iPhone 16 Pro</p>
-            <p>Giá: <b>25.990.000đ</p></b>   // Sai tự nhiên lòi ra </b>
+            <p>Giá: <b>25.990.000đ</p></b>
         </section>
-        
+
         <section>
             <h3>Thông tin</h3>
             <table>
-                <tr> // Sai semantic 
-                    <td>Tên</td>    
+                <tr>
+                    <td>Tên</td>
                     <td>Giá</td>
                 </tr>
                 <tr>
@@ -157,135 +305,315 @@ Bài B3 — Debug HTML
             </table>
         </section>
     </main>
-    
-    <main>                         // Sai thừa 1 main nên dùng aside
+
+    <main>
         <p>Sidebar content</p>
     </main>
-    
+
     <footer>
-        <p>Copyright 2026     // Sai thiếu </p>
+        <p>Copyright 2026
     </footer>
 </body>
-  // Sai thiếu </html>
-*Số dòng em sẽ đánh số theo như trong file answer.md này luôn
-- Các lỗi sai bao gồm:
-Lỗi 1: Dòng 118 - Sai khuôn mẫu html - <!DOCTYPE> phải sửa thành <!DOCTYPE html>
-Lỗi 2: Dòng 121 - Thiếu đóng thẻ - Viết thêm thẻ đóng </title>
-Lỗi 3: Dòng 125 - Đóng thẻ sai - sửa <h1> thành </h1>
-Lỗi 4: Dòng 129 - Đóng thẻ sai - sửa <a> thành </a>
-Lỗi 5: Dòng 137 - Sai syntax sau src - Sau src= phải có dấu "" thành "iphone.jpg" 
-Lỗi 6: Dòng 139 - Viết sai thứ tự khi đóng thẻ - <p>Giá: <b>25.990.000đ</p></b> phải cho </b> vào trong thành <p>Giá: <b>25.990.000đ</b></p>
-Lỗi 7: Dòng 157-159 - Sai semantic,một body chỉ cần 1 main chứ không cần nhiều main - Thay vì dùng main thì sẽ dùng thẻ aside cho các thành phần không phải thành phần chính
-Lỗi 8: Dòng 162 - Thiếu đóng thẻ - thêm đóng thẻ </p>
-Lỗi 9: Dòng 165 - Thiếu đóng thẻ - thêm đóng thẻ </html>
-lỗi 10: Dòng 145-148 - Sai semantic về loại thẻ cần dùng - <tr> phải đổi thành <thead> và <td> phải đổi thành <th>
-Lỗi 11: - Sai đường dẫn tương đối thay vì sử dụng anchor link - thêm dấu #   
+```
 
+## Các lỗi sai bao gồm
 
+1. `<!DOCTYPE>` phải sửa thành `<!DOCTYPE html>`
+2. Thiếu đóng thẻ `</title>`
+3. Sai đóng thẻ `</h1>`
+4. Sai đóng thẻ `</a>`
+5. `src=iphone.jpg` thiếu dấu `""`
+6. Sai thứ tự đóng thẻ:
 
-Bài B4  — Phân tích trang web thật
-1.
-- Em đã chọn trang web shopee.vn và nhận thấy họ có dùng các thẻ semantic sau:
-+) Thẻ <header> ở đầu body chứa toàn bộ logo,phần layout màu cam trên cùng, và thậm chí là trong <header> còn chứa cả thanh tìm kiếm sản phẩm của trang web nữa
-======> Bai 4_TimHieuElement_03.png
+```html
+<p>Giá: <b>25.990.000đ</p></b>
+```
 
-+) Thẻ <nav> đặt bên trong <header> và được viết ngay bên dưới header có chứa các đường link dẫn đến các danh mục khác của shopee như trang "kênh người bán" hay "trở thành người bán hàng" và sẽ điều hướng tới các trang khác ngoài shopee.vn
-======> Bai 4_TimHieuElement_02.png
+phải sửa thành:
 
-+) Thẻ <section> viết ngay bên dưới phần header được bao trong 1 thẻ <div> có vẻ như nó là một phần gì đó giúp chia bố cục chi tiết hơn cho thẻ <div> và còn liên quan tới hình ảnh vì em thấy có các dòng như placeholdimage hay img,icon,background trong đó
-======> Bai 4_TimHieuElement_01.png
+```html
+<p>Giá: <b>25.990.000đ</b></p>
+```
 
-- Còn về những thẻ mà họ dùng không đúng semantic, em chỉ nhận ra một thẻ đó là họ không dùng thẻ <main> bên dưới thẻ <body> thay vào đó họ dùng cấu trúc các <div> và <section> rất lạ
+7. Một body không nên có nhiều `main`
 
-2. Trên trang shopee.vn người ta còn không dùng cả table, có thể với các web lớn table có vẻ lỗi thời và không hợp lí nữa vì tìm trong element không thấy có <table>
+   * Nên thay `main` thứ hai bằng `aside`
 
-3.
-Vì trong form không hề có action="_" hay method=" _ " nên action có thể gửi đến url hiện tại, còn method thì trình duyệt sẽ coi mặc định là Get
-Còn trong code em thấy có mỗi <input __________ value=""> mà không có định dạng cụ thể nên trình duyệt sẽ mặc định coi đó là text
-======> Bai 4_TimHieuElement_04.png
+8. Thiếu đóng thẻ `</p>`
 
+9. Thiếu đóng thẻ `</html>`
 
+10. Sai semantic:
 
+    * `<tr>` nên dùng kết hợp `<thead>`
+    * `<td>` tiêu đề nên đổi thành `<th>`
 
-PBT_2
-Câu A1  — Input Types
-1. type="email" -> Ô nhập text, tự kiểm tra có @ -> Dùng cho form đăng ký
-2. type="password" -> Ô nhập text nhưng bị ẩn đi thành icon tròn -> Dùng cho form nhập mật khẩu
-3.type="text" -> Ô nhập kí tự không có gì đặc biệt -> Dùng để nhập tên, nhập địa chỉ,...
-4.type"number"-> Ô nhập số, có nút tăng giảm, chỉ cho nhập số, có thể dùng min,max -> Dùng nhập số lượng sản phẩm,số người,..
-5.type="tel" -> Ô nhập số điện thoại,trên mobile sẽ hiện bàn phím số,không có validate sẵn - > Dùng nhập số điện thoại
-6.type="date"-> Hiện bộ khung chọn ngày, cần nhập đúng định dạng ngày -> Dùng để nhập ngày tháng năm sinh
-7.type="radio" -> Nút chọn một trong nhiều lựa chọn,không có validate riêng -> Dùng để chọn giới tính hoặc phương thức như thanh toán,giao hàng,....
-8.type="checkbox" -> Ô tick chọn được cho chọn nhiều hoặc chọn đồng ý,không có validate riêng-> Dùng chọn đồng ý điều khoản hoặc lựa chọn sản phẩm,....
-9.type="file" -> Nút upload file, có thể dùng accept để giới hạn loại file mà ng dùng có thể upload -> Dùng để upload,tải file lên trang web
-10.type="search" -> Ô tìm kiếm cho nhập text, cũng không khác gì text,một số trình duyệt có thể hỗ trợ nút x xóa nhanh -> Dùng làm thanh tìm kiếm video,tìm kiếm nhạc,....
+11. Sai đường dẫn tương đối thay vì anchor link
 
-Câu A2  — Validation Attributes
+---
 
+# Bài B4 — Phân tích trang web thật
+
+## 1. Semantic HTML trên Shopee
+
+Em đã chọn trang web `shopee.vn` và nhận thấy họ có dùng các thẻ semantic sau:
+
+### `<header>`
+
+Đặt ở đầu body chứa:
+
+* Logo
+* Layout màu cam phía trên
+* Thanh tìm kiếm
+
+```text
+Bai 4_TimHieuElement_03.png
+```
+
+### `<nav>`
+
+Đặt bên trong `<header>`.
+
+Chứa các link:
+
+* Kênh người bán
+* Trở thành người bán hàng
+* ...
+
+```text
+Bai 4_TimHieuElement_02.png
+```
+
+### `<section>`
+
+Viết bên dưới phần header.
+
+Có vẻ dùng để chia bố cục chi tiết hơn và liên quan tới hình ảnh.
+
+```text
+Bai 4_TimHieuElement_01.png
+```
+
+## Nhận xét thêm
+
+Shopee không dùng `<main>` rõ ràng mà dùng nhiều `<div>` và `<section>`.
+
+---
+
+## 2. Shopee không dùng table
+
+Trên Shopee hầu như không thấy dùng `<table>`.
+
+Có thể với các web lớn thì table đã lỗi thời và không phù hợp để dựng giao diện.
+
+---
+
+## 3. Phân tích form
+
+Vì trong form không có:
+
+* `action="_"`
+* `method="_"`
+
+nên:
+
+* Action có thể gửi tới URL hiện tại.
+* Method mặc định sẽ là `GET`.
+
+Ngoài ra:
+
+```html
+<input __________ value="">
+```
+
+không có type cụ thể nên browser mặc định sẽ coi là `text`.
+
+```text
+Bai 4_TimHieuElement_04.png
+```
+
+---
+
+# PBT_2
+
+# Câu A1 — Input Types
+
+1. `type="email"`
+
+   * Ô nhập text
+   * Tự kiểm tra có `@`
+   * Dùng cho form đăng ký
+
+2. `type="password"`
+
+   * Ô nhập text nhưng bị ẩn
+   * Dùng cho form mật khẩu
+
+3. `type="text"`
+
+   * Ô nhập kí tự bình thường
+   * Dùng nhập tên, địa chỉ
+
+4. `type="number"`
+
+   * Ô nhập số
+   * Có nút tăng giảm
+   * Có thể dùng `min`, `max`
+
+5. `type="tel"`
+
+   * Ô nhập số điện thoại
+   * Mobile hiện bàn phím số
+
+6. `type="date"`
+
+   * Hiện bộ chọn ngày
+   * Dùng nhập ngày sinh
+
+7. `type="radio"`
+
+   * Chọn một trong nhiều lựa chọn
+
+8. `type="checkbox"`
+
+   * Tick chọn nhiều lựa chọn
+
+9. `type="file"`
+
+   * Upload file
+   * Có thể dùng `accept`
+
+10. `type="search"`
+
+    * Ô tìm kiếm
+    * Một số browser có nút xoá nhanh
+
+---
+
+# Câu A2 — Validation Attributes
+
+```html
 <!-- Trường hợp 1 -->
-<input type="text" required value="">   <!-- User để trống -->
+<input type="text" required value="">
 
 <!-- Trường hợp 2 -->
-<input type="email" value="abc">        <!-- User gõ "abc" -->
+<input type="email" value="abc">
 
 <!-- Trường hợp 3 -->
-<input type="number" min="1" max="10" value="15"> <!-- User gõ 15 -->
+<input type="number" min="1" max="10" value="15">
 
 <!-- Trường hợp 4 -->
-<input type="text" pattern="[0-9]{10}" value="abc123"> <!-- User gõ "abc123" -->
+<input type="text" pattern="[0-9]{10}" value="abc123">
 
 <!-- Trường hợp 5 -->
-<input type="password" minlength="8" value="123">  <!-- User gõ "123" -->
+<input type="password" minlength="8" value="123">
+```
 
-- Trong trường hợp 1 khi bấm submit trình duyệt sẽ đòi ng dùng phải nhập vào textbox vì có thuộc tính required
-- Trong trường hợp 2 khi bấm submit, trình duyệt sẽ báo ghi sai định dạng và yêu cầu ng dùng nhập cho đúng vì type ở đây là email, nó sẽ yêu cầu nhập cả @ và định dạng theo kiểu email, nên chỉ nhập abc thôi là k đc 
-- Trong trường hợp 3 nếu bấm submit có thể browser sẽ báo sai vì max ở đây set là 10 trong khi ng dùng lại nhập 15 là vượt quá giới hạn
-- Trong trường hợp 4 sẽ bị browser báo nhập sai vì pattern quy định định dạng là chỉ cho nhập số 0-9
-- Trong trường hợp 5 sẽ bị browser báo nhập chưa đúng vì độ dài tối thiểu minlength được set là 8 trong khi người dùng chỉ nhập có 3 kí tự 
+## Giải thích
 
+### Trường hợp 1
 
+Browser sẽ bắt nhập vì có `required`.
 
+### Trường hợp 2
 
-Câu C1  — Debug Form
+Browser báo sai định dạng email.
 
+### Trường hợp 3
+
+Browser báo vượt quá `max="10"`.
+
+### Trường hợp 4
+
+Browser báo sai pattern.
+
+### Trường hợp 5
+
+Browser báo chưa đủ độ dài tối thiểu.
+
+---
+
+# Câu C1 — Debug Form
+
+## Code đề bài
+
+```html
 <form>
     Tên: <input type="text">
-    
+
     <input type="email" placeholder="Email của bạn">
-    
+
     <input type="password" placeholder="Mật khẩu">
     <input type="password" placeholder="Nhập lại mật khẩu">
-    
+
     Phone: <input type="text" value="0901234567">
-    
+
     <select>
         <option>Hà Nội</option>
         <option>TP.HCM</option>
     </select>
-    
+
     <label>
         Tôi đồng ý điều khoản
     </label>
-    
+
     <input type="submit" value="Gửi">
 </form>
+```
 
+## Các lỗi
 
-Lỗi 1: Dòng 2 - Thiếu <label for ="name">...</label> -  vi phạm assessibility
-Sửa lại: thêm <label for="name">Tên:</label> vào trước input type="text" và thêm id="name" vào sau input type="text"
-Lỗi 2: Dòng 4 - Thiếu <label for="email">...</label> - vi phạm assessibility
-Sửa lại: thêm <label for="email">Email:</label> vào trước input type="email" và thêm id="email" vào sau input type="email" 
-Lỗi 3: Dòng 6 - Thiếu <label for="password">...</label> - vi phạm assessibility
-Sửa lại: thêm <label for="password">Mật khẩu:</label> vào trước input type="password" và thêm id="password" vào sau input type="password"
-Lỗi 4: Dòng 7 - Thiếu <label for="confirm_password">...</label> - vi phạm assessibility
-Sửa lại: thêm <label for="confirm_password">Nhập lại mật khẩu:</label> vào trước input type="password" và thêm id="confirm_password" vào sau input type="password"
-Lỗi 5: Dòng 6 và Dòng 7 mật khẩu và nhập lại mật khẩu không check chéo cho nhau được, cần đến JS, còn để như code đề bài thì kể cả không ghi trùng mật khẩu 
-thì vẫn submit được 
-Lỗi 6: Dòng 9 - Thiếu <label for="phone">...</label> - vi phạm assessibility
-Sửa lại: thêm <label for="phone">Phone:</label> vào trước input type="text" và thêm id="phone" vào sau input type="text" 
-Lỗi 7: Dòng 17 đang thiếu <input type="checkbox"> - vi phạm assessibility lẫn best practice vì ở mục đồng ý điều khoản luôn nên có checkbox nếu không
-người dùng sẽ không có lựa chọn và ngầm hiểu bị ép buộc đồng ý điều khoản, còn đối với dev thì sẽ không để ý đến nó vì nó chỉ là 1 đoạn thẻ p dễ dẫn đến 
-sai só
-Sửa lại: thêm <input type="checkbox" id="agree" name="agree" required> vào trước label Tôi đồng ý điều khoản và thêm for="agree" vào trong label
-Lỗi 8: Dòng 18 - Thiếu <button type="submit">...</button> - vi phạm best practice vì nên dùng button để submit thay vì cái input type="submit" để dễ dàng tùy chỉnh style hơn
-Sửa lại: thay <input type="submit" value="Gửi"> thành <button type="submit">Gửi</button>
+### Lỗi 1
+
+Thiếu:
+
+```html
+<label for="name"></label>
+```
+
+### Lỗi 2
+
+Thiếu label cho email.
+
+### Lỗi 3
+
+Thiếu label cho password.
+
+### Lỗi 4
+
+Thiếu label cho confirm password.
+
+### Lỗi 5
+
+Mật khẩu và nhập lại mật khẩu không check chéo.
+
+Cần dùng JavaScript.
+
+### Lỗi 6
+
+Thiếu label cho phone.
+
+### Lỗi 7
+
+Thiếu checkbox đồng ý điều khoản.
+
+Nên sửa thành:
+
+```html
+<input type="checkbox" id="agree" name="agree" required>
+<label for="agree">Tôi đồng ý điều khoản</label>
+```
+
+### Lỗi 8
+
+Không nên dùng:
+
+```html
+<input type="submit">
+```
+
+Nên dùng:
+
+```html
+<button type="submit">Gửi</button>
+```
