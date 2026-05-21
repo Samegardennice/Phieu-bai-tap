@@ -103,3 +103,75 @@ var html = `<div class="card">
 <span>Giá: ${price}đ</span>
 </div>`;
 ```
+
+
+**Câu C1** 
+
+Tìm và sửa TẤT CẢ lỗi trong code sau (có ít nhất 6 lỗi):
+
+```c
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ"
+    }
+    
+    var giamGia = giaBan * phanTramGiam / 100
+    let giaSauGiam = giaBan - giamGia
+    
+    if (giaSauGiam = 0) {
+        console.log("Sản phẩm miễn phí!")
+    }
+    
+    return giaSauGiam
+}
+
+// Test
+const gia = tinhGiaGiamGia("100000", 20)
+console.log("Giá sau giảm: " + gia + "đ")
+
+const gia2 = tinhGiaGiamGia(50000, 110)
+console.log("Giá: " + gia2)
+
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+```
+
+lỗi 1: truyền 10000 dưới dạng string chứ k phải number bởi vì "10000" là chuỗi  nên không thể dùng chuỗi tính toán với số để cho ra kết quả là số được
+
+sửa: const gia = tinhGiaGiamGia(100000, 20)
+
+lỗi 2: if (giaSauGiam = 0) bị nhầm, đây là gán chứ không phải so sánh, có thể khiến kết quả sai vì thay vì so sánh có bằng 0 không thì lại đi gán cho nó bằng 0
+
+sửa lại: if (giaSauGiam === 0)
+
+lỗi 3: tinhGiaGiamGia(giaBan, phanTramGiam) không chịu kiểm tra giá trị đầu vào vì lỡ giaBan hay phanTramGiam là chuỗi string thì sẽ trả kết quả NaN gây sai 
+
+sửa lại: if (typeof giaBan !== "number" || typeof phanTramGiam !== "number") phải kiểm tra kiểu đầu vào trước rồi làm gì sau thì làm
+
+lỗi 4: var giamGia là sai vì var không có phạm vi scope rõ ràng nên có thể nhận đè giá trị gây sai,lỗi khi nó được gán lại ngoài scope
+
+sửa lại: let giamGia
+
+lỗi 5: Lỗi ẩn trong vòng lặp với var
+
+```c
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+```
+trong vòng lặp này sẽ in ra toàn là Item 5 thay vì lần lượt 0 1 2... vì do var không tạo block scope, toàn bộ callback trong setTimeout dùng chung một biến i, sau khi vòng lặp kết thúc thì i = 5, callback lúc này mới chạy và do là var nên bị ghi đè là 5 luôn nên tất cả là 5 
+
+sửa lại: 
+
+```c
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+```
