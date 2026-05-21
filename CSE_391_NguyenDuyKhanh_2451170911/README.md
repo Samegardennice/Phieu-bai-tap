@@ -3,7 +3,7 @@ Link video từ phiếu bài tập 4 trở đi  ( phiếu 1,2,3 video trong fold
 
 PBT_04: https://youtu.be/6TsHbiTnf4c
 
-PBT_05: Đang sửa chưa có tiếng 
+PBT_05: https://youtu.be/x19T1lyKwAM
 
 PBT_06: https://youtu.be/1kiGeASzH8w
 
