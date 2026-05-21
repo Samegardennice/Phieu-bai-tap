@@ -71,3 +71,35 @@ if (0) console.log("F");        không in vì 0 là falsy
 if (-1) console.log("G");       có in ra G 
 
 if (" ") console.log("H");      có in ra H vì chuỗi có chứa space không tính là chuỗi rỗng      
+
+**Câu A5**
+
+Cách 1:
+
+var greeting = "Xin chào " + name + "! Bạn " + age + " tuổi.";
+
+viết lại: var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+
+Cách 2:
+
+var url = "https://api.example.com/users/" + userId + "/orders?page=" + page;
+
+viết lại:  var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
+
+ Cách 3:
+
+```c
+var html = "<div class=\"card\">" +
+    "<h2>" + title + "</h2>" +
+    "<p>" + description + "</p>" +
+    "<span>Giá: " + price + "đ</span>" +
+    "</div>";
+```
+Viết lại: 
+```c
+var html = `<div class="card">
+<h2>${title}</h2>
+<p>${description}</p>
+<span>Giá: ${price}đ</span>
+</div>`;
+```
