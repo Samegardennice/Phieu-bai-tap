@@ -120,3 +120,34 @@ Dự đoán output cho đoạn 2 lần lượt là:
 Var và let khác nhau trong vòng lặp SetTimeOut là vì: var là function scope tức là nó được dùng cho toàn bộ  hàm, vì trong vòng for var không tạo biến mới mà chỉ cập nhật var i mới và được dùng chung nên sau khi nó tăng 1 2 3 đến 3 là dừng thì vì SetTimeOut đang dùng closure tham chiếu đến biến var i trong vòng lặp và var i sau vòng lặp là 3 nên cả 3 cái SetTimeOut chờ vòng lặp chạy xong sẽ cùng tham chiếu đến cái var i này nên in ra toàn 3 
 
 Còn đối với let thì mỗi lần lặp lại tạo 1 biến let i mới nên mỗi lần tạo như vậy SetTimeOut lại ghi nhớ 1 biến i khác nhau và vì có 3 biến i nên 3 cái SetTimeOut tham chiếu đến 3 cái let i này khác với var i là 3 SetTimeOut tham chiếu 1 cái i duy nhất
+
+
+**Câu A3**
+
+Đề bài:
+
+```c
+1. Lấy các số chẵn                    → [2, 4, 6, 8, 10]
+2. Nhân mỗi số với 3                  → [3, 6, 9, ..., 30]
+3. Tính tổng tất cả                   → 55
+4. Tìm số đầu tiên > 7               → 8
+5. Kiểm tra CÓ số > 10 không         → false
+6. Kiểm tra TẤT CẢ đều > 0           → true
+7. Tạo mảng "Số X là [chẵn/lẻ]"      → ["Số 1 là lẻ", "Số 2 là chẵn", ...]
+8. Đảo ngược mảng (không mutate gốc)  → [10, 9, ..., 1]
+```
+
+Viết câu theo yêu cầu lần lượt từ 1-8:
+
+```c
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+nums.filter(n=>n%2===0);
+nums.map(n=>n*3);
+nums.reduce((sum, n)=>sum+n,0);
+nums.find(n=>n>7);
+nums.some(n=>n>10);
+nums.every(n=>n>0);
+nums.map(n => `Số ${n} là ${n % 2 === 0 ? "chẵn" : "lẻ"}`);
+nums.slice().reverse();
+```
