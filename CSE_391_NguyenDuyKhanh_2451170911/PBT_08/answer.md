@@ -179,5 +179,19 @@ copy.specs.ram = 16;
 console.log(product.specs.ram);        // 16 vì spread chỉ copy nông tức copy được các thuộc tính không phải object hay array còn nếu thuộc tính là object hoặc array thì sẽ cùng trỏ đến địa chỉ object ban đầu nên 2 object copy và product dùng chung specs nên specs thay đổi ở copy thì product thay đổi theo
 ```
 
+**Câu C1**
 
-
+```c
+const processOrders = (orders) => {
+    return orders
+        .filter(order => order.status === "completed" && order.total > 100000)
+        .map(order => ({
+            id: order.id,
+            customer: order.customer,
+            total: order.total,
+            discount: order.total * 0.1,
+            finalTotal: order.total * 0.9
+        }))
+        .sort((a, b) => b.finalTotal - a.finalTotal);
+};
+```
