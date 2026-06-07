@@ -151,3 +151,33 @@ nums.every(n=>n>0);
 nums.map(n => `Số ${n} là ${n % 2 === 0 ? "chẵn" : "lẻ"}`);
 nums.slice().reverse();
 ```
+
+**Câu A4**
+
+
+```c
+const product = {
+    name: "iPhone 16",
+    price: 25990000,
+    specs: { ram: 8, storage: 256, color: "Titan" }
+};
+
+// Destructuring
+const { name, price, specs: { ram, color } } = product;
+console.log(name, price, ram, color);  // Chỗ này sẽ in ra iPhone 16 25990000 8 Titan
+console.log(specs);                     // Bị lỗi không in ra gì cả vì destructuring không tạo biến specs và chỉ in ra đc chính xác ram hay color chứ specs không in ra gì cả 
+
+// Spread
+const updated = { ...product, price: 23990000, sale: true };
+console.log(updated.price);            // 23990000
+console.log(updated.sale);             // true
+console.log(product.price);            // 25990000 không đổi vì updated chỉ copy và tạo ra object mới nên không ảnh hưởng tới product
+
+// Spread gotcha
+const copy = { ...product };
+copy.specs.ram = 16;
+console.log(product.specs.ram);        // 16 vì spread chỉ copy nông tức copy được các thuộc tính không phải object hay array còn nếu thuộc tính là object hoặc array thì sẽ cùng trỏ đến địa chỉ object ban đầu nên 2 object copy và product dùng chung specs nên specs thay đổi ở copy thì product thay đổi theo
+```
+
+
+
