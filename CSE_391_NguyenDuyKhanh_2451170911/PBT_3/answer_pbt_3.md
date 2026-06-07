@@ -1,63 +1,95 @@
-Câu A1 - 3 Cách nhúng CSS
+# Câu A1 - 3 Cách nhúng CSS
 
-*Inline 
-- Ưu điểm: Có thể code trực tiếp vào trong thẻ html, dùng nhanh được cho 1 phần tử riêng lẻ 
-- Nhược điểm:
-+) Code bị lặp lại nhiều, mỗi phần tử lại cần viết thuộc tính style cho nó lại 1 lần nữa
-+) Không tách biệt được giao diện và nội dung, code rối khó đọc
-VD: <h1 style="color:red; text-align:center;">
+## Inline CSS
+**Ưu điểm:**
+- Viết trực tiếp trong thẻ HTML
+- Dùng nhanh cho 1 phần tử
+
+**Nhược điểm:**
+- Lặp code nhiều
+- Khó bảo trì
+- Không tách biệt HTML và CSS
+
+**Ví dụ:**
+```html
+<h1 style="color:red; text-align:center;">
     Xin chào
 </h1>
+```
 
-- Chỉ dùng khi muốn test nhanh một phần tử hoặc đang cần gán style đơn giản cho 1 phần tử khi đang cần gấp để demo
-*Internal
--Ưu điểm: Quản lý cả trang dễ dàng, không cần tạo file css riêng
-- Nhược điểm:
-+) Chỉ dùng được cho 1 trang duy nhất, không có tính tái sử dụng cho nhiều trang
-+) Có thể khiến file html bị phình to dài ra 
-VD:
+**Khi dùng:**
+- Test nhanh
+- Demo nhỏ
+
+---
+
+## Internal CSS
+**Ưu điểm:**
+- Quản lý trong 1 file HTML
+- Dễ dùng cho trang đơn
+
+**Nhược điểm:**
+- Chỉ dùng cho 1 trang
+- File HTML dễ phình to
+
+**Ví dụ:**
+```html
 <style>
-    <h1>{
-        color:blue;
-        font-size:36px;
-    }</h1>
+h1 {
+    color: blue;
+    font-size: 36px;
+}
 </style>
+```
 
-- Chỉ nên dùng cho web nhỏ chỉ có 1 trang duy nhất, hoặc bài tập nhỏ,bài demo
+**Khi dùng:**
+- Website nhỏ
+- Bài tập / demo
 
-*External
--Ưu điểm:
-+) Dễ bảo trì, tái sử dụng được cho nhiều trang khác nhau
-+) Tách biệt html và css giúp code sạch hơn và chia nội dung rõ ràng hơn
-- Nhược điểm:
-+) Phải tạo thêm file css riêng
-+) Lỡ ghi sai đường link thì coi như không chạy được css 
+---
 
-VD:
-(trong file html ghi)
-<!DOCTYPE html>
-<html>
-<head>
+## External CSS
+**Ưu điểm:**
+- Tái sử dụng nhiều trang
+- Code sạch, dễ bảo trì
+
+**Nhược điểm:**
+- Cần thêm file CSS
+- Sai đường dẫn sẽ lỗi CSS
+
+**Ví dụ:**
+```html
 <link rel="stylesheet" href="style.css">
-</head>
-<html>
+```
 
-(trong file css ghi)
-h1{
+```css
+h1 {
     color: purple;
 }
 
-p{
-    font-size:20px;
+p {
+    font-size: 20px;
     color: orange;
 }
+```
 
-- Chỉ nên dùng khi web có nhiều page, cần tái sử dụng style, hoặc khi làm dự án lớn
+**Khi dùng:**
+- Dự án lớn
+- Website nhiều trang
 
+---
 
-*Nếu dùng cả 3 cách CSS đồng thời được áp dụng thì k có cái nào thắng mà chỉ có cái nào được ưu tiên sử dụng. Nếu cùng sử dụng trong 1 file html thì cách dùng CSS nằm ở vị trí dưới cùng sẽ được ưu tiên áp dụng cho trang web vì code sẽ được đọc từ trên xuống dưới và cái nằm dưới cùng sẽ được ưu tiên chạy cao nhất 
+## Độ ưu tiên CSS
+- Inline > Internal > External
+- Nhưng quan trọng hơn là **specificity**
+- Nếu cùng mức, CSS viết sau sẽ được ưu tiên
 
-Câu A2  — CSS Selectors — Dự đoán kết quả
+---
+
+# Câu A2 - CSS Selectors
+
+## HTML
+```html
 <div id="app">
     <header class="top-bar dark">
         <h1>ShopTLU</h1>
@@ -80,31 +112,40 @@ Câu A2  — CSS Selectors — Dự đoán kết quả
         </article>
     </main>
 </div>
+```
 
-Các element sẽ được chọn bởi các selector tương ứng
+## Kết quả selector
 
-1. h1                           → Chọn: ShopTLu
-2. .price                       → Chọn: 45.990.000
-3. #app header                  → Chọn: ShopTlu Home Products About
-4. nav a:first-child             → Chọn: Home
-5. .product.featured h2         → Chọn: Macbook pro 
-6. article > p                  → Chọn: 25.990.000 Mô tả sản phẩm  45.990.000 Mô tả sản phẩm 
-7. a[href="/"]                  → Chọn: Home Products About
-8. .top-bar.dark h1              → Chọn: ShopTLU
+1. `h1` → ShopTLU  
+2. `.price` → 45.990.000đ  
+3. `#app header` → ShopTLU + nav links  
+4. `nav a:first-child` → Home  
+5. `.product.featured h2` → MacBook Pro  
+6. `article > p` → 25.990.000đ + mô tả  
+7. `a[href="/"]` → Home  
+8. `.top-bar.dark h1` → ShopTLU  
 
-Câu A3  — Box Model — Tính toán kích thước
+---
 
-/* Trường hợp 1: content-box (mặc định) */
+# Câu A3 - Box Model
+
+## content-box
+```css
 .box-1 {
     width: 400px;
     padding: 20px;
     border: 5px solid black;
     margin: 10px;
 }
-→ Chiều rộng hiển thị = 400 + 20.2 + 5.2 = 400 + 40 + 10 = 450px
-→ Không gian chiếm trên trang = 450 + 10.2 = 470px
+```
 
-/* Trường hợp 2: border-box */
+- Width thực: 400 + 40 + 10 = **450px**
+- Tổng chiếm: **470px**
+
+---
+
+## border-box
+```css
 .box-2 {
     box-sizing: border-box;
     width: 400px;
@@ -112,144 +153,67 @@ Câu A3  — Box Model — Tính toán kích thước
     border: 5px solid black;
     margin: 10px;
 }
-→ Chiều rộng hiển thị = 400px
-→ Kích thước content thực tế = 400 - 20.2 - 5.2 = 400-50 =350px
-→ Không gian chiếm trên trang = 400+10.2=420px 
+```
 
-/* Trường hợp 3: Margin collapse */
-.box-a { margin-bottom: 25px; }
-.box-b { margin-top: 40px; }
-→ Khoảng cách giữa box-a và box-b = 40px
-→ Giải thích tại sao KHÔNG PHẢI 65px
-Bởi vì chúng có thể gộp margin tức khi 2 margin 25px và 40px chạm nhau thì sẽ gộp luôn vào nhau và lấy thằng có kích thước lớn nhất
-làm khoảng cách giữa 2 box thế nên sẽ lấy 40px thay vì là 65px
+- Width hiển thị: **400px**
+- Content thực: 350px
+- Tổng chiếm: **420px**
 
+---
 
+## Margin collapse
+- 25px và 40px → lấy **40px**
+- Không cộng lại vì margin collapse
 
+---
 
-Câu A4  — Specificity (Độ ưu tiên)
-1.
-p { color: black; }                    /* Rule A */
-.price { color: blue; }               /* Rule B */
-#main-price { color: red; }           /* Rule C */
-p.price { color: green; }             /* Rule D */
+# Câu A4 - Specificity
 
-- Rule A có (0,0,1) 
-- Rule B có (0,1,0 )
-- Rule C có (1,0,0)
-- Rule D có (0,1,1)
-=> Thứ tự từ ưu tiên cao đến thấp là Rule C -> Rule D -> Rule B -> Rule A
-*Nếu thêm <p class="price" id="main-price" style="color: orange;">, element có màu cam bởi vì đó là style inline viết thêm sau cùng nên sẽ ưu tiên lấy code style ở dưới cùng nên sẽ ưu tiên lấy màu cam
+## Ví dụ
+- p → (0,0,1)
+- .price → (0,1,0)
+- #main-price → (1,0,0)
+- p.price → (0,1,1)
 
-*Nếu rule A thêm !important element sẽ có màu black bởi vì !important sẽ khiến thứ tự ưu tiên của p cao hơn các phần tử khác một bậc và ưu tiên cao hơn cả specifity
+👉 Thứ tự:
+#main-price > p.price > .price > p
 
+---
 
-Bài B1  — Style trang Profile
-- Các loại selector mà em đã sử dụng 
-+) element
+## !important
+- Luôn ưu tiên cao nhất
+- Override mọi specificity
 
- body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:beige;
-    color:#556B2F;
-    line-height: 1.6;
-}
-+) class
+---
 
-.header-web {
-    background:linear-gradient();
-    color:white;
-    padding:20px;
-    background-color:rgb(201, 160, 131);
-}
+# Bài B1 - Profile CSS
 
-+) descendant
+## Selector dùng:
+- element: body
+- class: .header-web
+- id + descendant: #Navigation ul
+- pseudo-class: .active:hover
 
-#Navigation ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 0px;
-    padding: 20px;    
-}
+---
 
-+) pseudo-class
+# Bài B2 - Box Model Lab
 
-.active:hover {
-    color: #aeeba0 !important;
-}
+- content-box: 300px content + padding + border
+- border-box: giữ width cố định
 
+---
 
-Bài B2 - Box Model Lab
+# Bài B3 - Specificity Battle
 
-Hộp 1 (content-box): chiều rộng thực tế = 300 px (đo từ DevTools)
-Hộp 2 (border-box): chiều rộng thực tế = 250 px (đo từ DevTools)
-Giải thích sự khác biệt: 
-- content-box là hành vi HTML4/CSS2 cũ — width chỉ apply cho content area. Padding và border "phình ra ngoài" thêm vào thế nên hộp 1 có 300px cho content lại gánh thêm 
-20px.2 2 bên của padding, thêm 5px.2 của 2 bên border thế là tổng width của box bị gộp lại thành 300 + 40 + 10 = 350
-- border-box thì sẽ hiện đại hơn đó là nó sẽ cố đưa padding và border co vào bên trong tức là ban đầu ra cung cấp 300px thì border-box sẽ tính toán và chia sẻ bớt px của thằng content bên trong và chia cho padding và border để mọi thứ vừa khít với 300px ban đầu được cung cấp. Vậy nên ta có thể thấy width hộp là 300 và content chỉ có 250 là do phải chia sẻ bớt 40px cho 2 padding hai bên và 2 border cho 2 bên mỗi cái 5px là 10px
+- Rule mạnh nhất: `p#demo.text.highlight`
+- Score: (1,2,1)
+- Luôn thắng mọi rule khác
 
-Bài B3 - Specificity Battle
+---
 
-- 10 CSS rules khác nhau cùng target lên thẻ p là: 
+# Câu C2 - Cascade
 
-1) p{
-    color: antiquewhite;       /* (0,0,1)*/ 
-}
-2) .text{
-    color: blue;    /* (0,1,0) */
-}
-3) p.text{
-    color:indigo /*(0,1,1)*/
-}
-4) p.highlight{
-    color: lawngreen;
-}
-5) .text.highlight{
-    color: burlywood;  /*(0,2,0)*/ 
-}
-
-6) p.text.highlight{
-    color: azure; /*(0,2,1)*/
-}
-7) #demo{
-    color: chartreuse; /*(1,0,0)*/
-}
-8) p#demo{
-    color: aqua; /*(1,0,1)*/
-}
-9) p#demo.text{
-    color: hotpink; /*(1,1,1)*/
-}
-10) p#demo.text.highlight{
-    color:blueviolet  /*(1,2,1)*/
-}
-
-=> Element cuối sẽ hiển thị màu tím xanh blueviolet vì đây là rule có quyền áp dụng mạnh nhất bởi nó có bộ chỉ số điểm specificity
-là (1,2,1) cao nhất trong số các rules
-
--Kể cả có thay đổi thứ tự các rule trong file CSS thì kết quả vẫn sẽ không thay đổi, màu của thẻ p vẫn sẽ là màu blueviolet bởi vì
-CSS có thứ tự ưu tiên theo rules chứ không phải thứ tự viết trong code, rules nào có tổng điểm Specificity score cao nhất sẽ được ưu 
-tiên áp dụng cao nhất.
-
-
-Câu C2  — Cascade Puzzle
-"Sản phẩm A" (h2) có font-size = 20px và color = Red
--> <h2 class="title highlight">Sản phẩm A</h2> có kế thừa từ card và container hay featured nên #featured .title { color: red; }
-sẽ áp dụng được lên <h2 class="title highlight">Sản phẩm A</h2>, và #featured .title { color: red; } cũng là dòng có specificity score cao nhất
-tới (1,1,0) là cao nhất trong các thẻ chứa <h2 class="title highlight">Sản phẩm A</h2>
-
-
-"Mô tả sản phẩm" (p trong card featured) có color = blue
-> .card { color: blue; } sẽ quyết định màu của "Mô tả sản phẩm" (p trong card featured) vì đây là selector duy nhất có chứa thuộc tính style màu sắc 
-cho thẻ con là <p>Mô tả sản phẩm</p>
-
-"Sản phẩm B" (h2) có font-size = 20px và color = Red 
--> Màu sẽ là Red vì #featured .title { color: red; } có specificity score cao nhất và chứa "Sản phẩm B" (h2), đồng thời
-.card .title { font-size: 20px; } cũng sẽ có specificity score cao nhất trong các selector có chứa "Sản phẩm B" (h2) có thuộc
-tính style font-size
-
-"Mô tả sản phẩm B" (p.highlight) có color = green
--> Vì .highlight { color: green !important; } có độ ưu tiên cao nhất do có !important thậm chí còn cao hơn specificity bình thường
-
+## Kết luận
+- `#featured .title` → mạnh nhất cho h2
+- `.card { color: blue }` → áp dụng cho p
+- `.highlight !important` → thắng mọi rule thường
