@@ -81,3 +81,42 @@ const tinhThueBaoHiem = function(luong){
 cái này sẽ không chạy vì hàm js sẽ hiểu là ưu tiên khai báo const tinhThueBaoHiem trước nhưng nó không hoisting function nên nó sẽ gọi luôn cái dưới là tinhThueBaoHiem(luong); mà hàm này lại chưa định nghĩa tại thời điểm này nên là lỗi luôn
 
 
+**Câu A2**
+
+```c
+// Đoạn 1:
+function counter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
+}
+const c = counter();
+console.log(c.increment());  // ???
+console.log(c.increment());  // ???
+console.log(c.increment());  // ???
+console.log(c.decrement());  // ???
+console.log(c.getCount());   // ???
+
+// Đoạn 2:
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log("var:", i), 100);
+}
+for (let j = 0; j < 3; j++) {
+    setTimeout(() => console.log("let:", j), 200);
+}
+// Output sau 200ms: ???
+```
+Dự đoán output cho đoạn 1 lần lượt là: 1 2 3 2 2
+
+Dự đoán output cho đoạn 2 lần lượt là: 
+
+ở vòng for dùng var : 3 3 3
+
+ở vòng for dùng let: 1 2 3
+
+Var và let khác nhau trong vòng lặp SetTimeOut là vì: var là function scope tức là nó được dùng cho toàn bộ  hàm, vì trong vòng for var không tạo biến mới mà chỉ cập nhật var i mới và được dùng chung nên sau khi nó tăng 1 2 3 đến 3 là dừng thì vì SetTimeOut đang dùng closure tham chiếu đến biến var i trong vòng lặp và var i sau vòng lặp là 3 nên cả 3 cái SetTimeOut chờ vòng lặp chạy xong sẽ cùng tham chiếu đến cái var i này nên in ra toàn 3 
+
+Còn đối với let thì mỗi lần lặp lại tạo 1 biến let i mới nên mỗi lần tạo như vậy SetTimeOut lại ghi nhớ 1 biến i khác nhau và vì có 3 biến i nên 3 cái SetTimeOut tham chiếu đến 3 cái let i này khác với var i là 3 SetTimeOut tham chiếu 1 cái i duy nhất
